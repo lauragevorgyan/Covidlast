@@ -1,0 +1,25 @@
+
+<div class="divcenter container">
+<!--  add link to graph  -->
+        <br>
+        <label for="node">Patient Name</label>
+        <br>
+        <input type="text" id="node" name="node" placeholder="Patient Name">
+        <label for="infection">Infection Source</label>
+        <br>
+        <input type="text" id="infection" name="Infection" placeholder="Infection Source">
+        <br>
+        <label for="sex">Sex</label>
+        <br>
+        <input type="text" id="sex" name="sex" placeholder="Male or Female">
+        <input type="file" name="file">
+
+        <div *ngFor="let obj of dataarray; let i = index">
+          <input type="text"  name="text{{i}}" [(ngModel)]="obj.text">
+
+          <button (click)="removeForm(i)"></button>
+        </div>
+        <button (click)="addForm()">add</button>
+        <input type="submit" value="Add node">
+        <input type = "submit" value="Upload File">
+</div>

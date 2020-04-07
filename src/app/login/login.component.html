@@ -1,0 +1,19 @@
+<!DOCTYPE html >
+<html xmlns:width="http://www.w3.org/1999/xhtml" xmlns:height="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div class="divcenter container">
+  <p><span class="pstyle"> Admin Page</span></p>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" [(ngModel)]="login">
+    <br>
+    <label for="password">Password</label>
+    <input type="text" id="password" name="password" [(ngModel)]="password">
+    <br>
+    <button (click)="signIn()" class="btn btn-primary margin">sign in</button>
+</div>
+
+</body>
+</html>
