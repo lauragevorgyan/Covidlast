@@ -4,22 +4,24 @@
         <br>
         <label for="node">Patient Name</label>
         <br>
-        <input type="text" id="node" name="node" placeholder="Patient Name">
+        <input type="text" id="node" name="node" placeholder="Patient Name" [(ngModel)]="patient_name">
         <label for="infection">Infection Source</label>
         <br>
-        <input type="text" id="infection" name="Infection" placeholder="Infection Source">
+        <input type="text" id="infection" name="Infection" placeholder="Infection Source" [(ngModel)]="infection">
         <br>
         <label for="sex">Sex</label>
         <br>
-        <input type="text" id="sex" name="sex" placeholder="Male or Female">
-        <input type="file" name="file">
+        <input type="text" id="sex" name="sex" placeholder="Male or Female" [(ngModel)]="sex">
+        <input type="file" name="file" (change)="handleFileInput($event.target.files)">
 
         <div *ngFor="let obj of dataarray; let i = index">
           <input type="text"  name="text{{i}}" [(ngModel)]="obj.text">
-
-          <button (click)="removeForm(i)"></button>
+          <button (click)="removeForm(i)" class="remove"> - </button>
         </div>
         <button (click)="addForm()">add</button>
-        <input type="submit" value="Add node">
-        <input type = "submit" value="Upload File">
+        <input type="submit" value="Add node" (click)="addNode()">
+        <input type = "submit" value="Upload File" (click)="addFile()">
+  <div style="margin-top: 15px">
+    <input type="submit" value="view nodes" (click)="viewNodeS()">
+  </div>
 </div>

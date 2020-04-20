@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+.divcenter{
+  display: block;
+  margin: 10% auto;
+}
 
 input[type=text], select, textarea {
   width: 90%;
@@ -14,6 +18,8 @@ input[type=file]{
   margin: 10px;
 }
 input[type=submit] {
+  margin-top: 10px;
+  margin-right: 10px;
   background-color: #2d6eaf;
   color: white;
   padding: 12px 20px;
@@ -28,4 +34,21 @@ input[type=submit] {
   padding: 20px;
   width: 400px;
   height: 500px;
+}
+
+button{
+  margin-top: 10px;
+  background-color: #f44336; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.remove{
+  border-radius: 2px;
+  height: 100%;
 }

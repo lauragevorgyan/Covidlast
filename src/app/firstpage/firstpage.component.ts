@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
+import {DataSet, Network} from 'vis';
 
 @Component({
   selector: 'app-firstpage',
@@ -8,12 +9,8 @@ import {Router} from '@angular/router';
 })
 export class FirstpageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  gotoInput() {
-    this.router.navigate(['/input']);
   }
 }

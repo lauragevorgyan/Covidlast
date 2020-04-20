@@ -6,7 +6,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { InputComponent } from './input/input.component';
 import { FirstpageComponent } from './firstpage/firstpage.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BigFormComponent } from './big-form/big-form.component';
+import { LargeInfoComponent } from './large-info/large-info.component';
+import { FileUploadModule } from 'ng2-file-upload';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {CovidService} from '../covid-service';
 
 @NgModule({
   declarations: [
@@ -14,14 +19,19 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     LoginComponent,
     InputComponent,
-    FirstpageComponent
+    FirstpageComponent,
+    BigFormComponent,
+    LargeInfoComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    FileUploadModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [CovidService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

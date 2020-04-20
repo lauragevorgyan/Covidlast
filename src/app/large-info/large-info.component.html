@@ -1,0 +1,3317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Header logo's -->
+
+<div>
+  <img src="../../assets/who.png" alt = "World health Organzayion">
+  <img src="../../assets/isaric.png" alt = "ISARIC">
+</div>
+
+<!-- Header -->
+
+<div style="text-align: center">
+  <h5>Global COVID-19 Clinical Platform</h5>
+  <h4>NOVEL CORONAVIRUS (COVID-19) - RAPID VERSION</h4>
+</div>
+
+<!-- About -->
+
+<div>
+  <h6 class="underline">DESIGN OF THIS CASE RECORD FORM(CRE)</h6>
+  <p class="about">THIS CRF has 3 modules:</p>
+  <p class="about"><b>Module 1</b> to be completed onthe first day of admission to the health centre.</p>
+  <p class="about"><b>Module 2</b> to be completed on first day admission to ICU or high dependency unit. Module 2 should also be completed daily for us many days as resources allow. Continue to follow up patients wh transfer between wards.</p>
+  <p class="about"><b>Module 3</b> to be completed at discharge or death</p>
+</div>
+
+<!-- General -->
+
+<div>
+  <h6 class="underline">GENERAL GUIDANCE</h6>
+  <ul>
+    <li>
+      The CRF is designed to collect data obtained through examination, interview and review of hospital notes. Data may be collected retrospectively if the patient is enrolled after the admission date.</li>
+    <li>Participant Identification Numbers consist of a site code and a participant number.
+      You can obtain a site code and register on the data management system by contacting <a href="#">EDCARN@who.int</a> Participant numbers should be assigned sequentially for each site beginning with 00001. In the case of a single site recruiting participants on different wards, or where it is otherwise difficult to assign sequential numbers, you can assign numbers in blocks or incorporate alpha characters. E.g. Ward X will assign numbers from 00001 or A0001 onwards and Ward Y will assign numbers from 50001 or B0001 onwards. Enter the Participant Identification Number at the top of every page.
+    </li>
+    <li>
+      Data are entered to the central electronic REDCap database at <a href ="https://ncov.medsci.ox.ac.uk">https://ncov.medsci.ox.ac.uk</a> or to your site/network’s independent database. Printed paper CRFs may be used and the data can be typed into the electronic database afterwards.
+    </li>
+    <li>
+      Complete every section. Questions marked “If yes,…” should be left blank when they do not apply (i.e. when the answer is not yes).
+    </li>
+    <li>
+      Selections with square boxes (☐) are single selection answers (choose one answer only).
+    </li>
+    <li>
+      Selections with circular boxes () are multiple selection answers (choose all that apply).
+    </li>
+    <li>
+      Mark ‘Unknown’ for any data that are not available or unknown
+    </li>
+    <li>
+      Avoid recording data outside of the 	dedicated areas.
+    </li>
+
+    <li>
+      If using paper CRFs, we recommend writing clearly in ink, using BLOCK-CAPITAL LETTERS.
+    </li>
+
+    <li>
+      Place an (X) in the boxes to mark the answer. To make corrections, strike through (-------) the data you wish to delete and write the correct data above it. Please initial and date all corrections.
+    </li>
+
+    <li>
+      Please keep all of the sheets for a single participant together e.g. with a staple or participant-unique folder.
+    </li>
+
+    <li>
+      Please transfer all paper CRF data to the electronic database. All paper CRFs can be stored by the institution responsible for them. All data should be transferred to the secure electronic database.
+    </li>
+
+    <li>
+      Please enter data on the electronic data capture system at <a href="https://ncov.medsci.ox.ac.uk">https://ncov.medsci.ox.ac.uk.</a> If your site would like to collect data independently, we can support the establishment of locally hosted databases.
+    </li>
+    <li>
+      Please contact us at <a href="#">EDCARN@who.int</a> If we can help with databases, if you have comments and to let us know that you are using the forms.
+    </li>
+  </ul>
+</div>
+<div>
+  <p class="footer">
+    COVID-19 CASE RECORD FORM RAPID version 23MAR2020
+    Adapted from SPRINT SARI CRF by <a href = "https://isaric.tghn.org/" class="underline">ISARIC</a>. Licensed under a <a href = "https://creativecommons.org/">Creative Commons Attribution-ShareAlike 4.0</a> International License by <a href = "https://isaric.tghn.org/" class="underline">ISARIC</a> on behalf of Oxford University.
+  </p>
+</div>
+
+<!---------------------------------- Second page  ----------------------------->
+<div class="row">
+  <div class="col-sm  font-size d-flex justify-content-end">
+    <p>PARTICIPANT ID
+      <input type="text" maxlength="9" [(ngModel)]="participantId" >
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+<!--      &#45;&#45;-->
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+<!--      |<input type="text" class="small" name="" maxlength="1">|-->
+
+    </p>
+  </div>
+</div>
+
+<div>
+  <h6><b>MODULE1: complete on admission/enrolment</b></h6>
+</div>
+<div class="row">
+  <div><p>Site name <input type="text" [(ngModel)]="siteName"></p></div>
+</div>
+<div>
+  <p><b>Date of enrolment</b>
+    <input type="date" [ngModel]="dateOfEnrolment | date:'yyyy-MM-dd'"
+           (ngModelChange)="dateOfEnrolment = $event"     >
+<!--    [<input type="text" class="small" placeholder="D" maxlength="1">]-->
+<!--    [<input type="text" class="small" placeholder="D" maxlength="1">]/-->
+<!--    [<input type="text" class="small" placeholder="M" maxlength="1">]-->
+<!--    [<input type="text" class="small" placeholder="M" maxlength="1">]/-->
+<!--    [<input type="text" class="small" value="2" maxlength="1">]-->
+<!--    [<input type="text" class="small" value="0" maxlength="1">]-->
+<!--    [<input type="text" class="small" placeholder="Y" maxlength="1">]-->
+<!--    [<input type="text" class="small" placeholder="Y" maxlength="1">]-->
+  </p>
+</div>
+<div>
+
+  <table class="table tablestyle">
+    <thead>
+    <tr>
+      <th scope="col" class="header">
+        CLINICAL INCLUSION CRITERIA
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Proven or suspected infection with pathogen of Public Health Interest
+        <label>
+          <input type="radio" name="pr" value="yes"  [(ngModel)]="infectionWithPathogen" > Yes
+        </label>
+        <label>
+          <input type="radio" name="pr" value="no" [(ngModel)]="infectionWithPathogen" > No
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        One or more | A history of self-reported feverishness or measured fever of ≥ 38oC
+        <label>
+          <input type="radio" name="mea" value="yes" [(ngModel)]="feverishnessOrMeasured"> Yes
+        </label>
+        <label>
+          <input type="radio" name="mea" value="no" [(ngModel)]="feverishnessOrMeasured"> No
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        of these | Cough
+        <label>
+          <input type="radio" name="cough" value="yes" [(ngModel)]="cough"> Yes
+        </label>
+        <label>
+          <input type="radio" name="cough"  value="no" [(ngModel)]="cough"> No
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        during this | Dyspnoea (shortness of breath) OR Tachypnoea*
+        <label>
+          <input type="radio" name="breath" value="yes" [(ngModel)]="dyspnoeaOrTechypnoea"> Yes
+        </label>
+        <label>
+          <input type="radio" name="breath" value="no" [(ngModel)]="dyspnoeaOrTechypnoea"> No
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        illness | Clinical suspicion of ARI despite not meeting criteria above
+        <label>
+          <input type="radio" name="crit" value="yes" [(ngModel)]="clinicalSuspicionARI"> Yes
+        </label>
+        <label>
+          <input type="radio" name="crit" value="no" [(ngModel)]="clinicalSuspicionARI"> No
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td style="font-size: 10px">
+        respiratory rate ≥50 breaths/min for <1 year; ≥40 for 1-4 years; ≥30 for 5-12 years; ≥20 for ≥13 years
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <table class="table tablestyle">
+    <thead>
+    <tr>
+      <th scope="col" class="header">
+        DEMOGRAPHICS
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>Sex at Birth </b>
+        <label>
+          <input type="radio" name="sex" value="Male" [(ngModel)]="sexAtBirth">Male
+        </label>
+        <label>
+          <input type="radio" name="sex" value="Female" [(ngModel)]="sexAtBirth">Female
+        </label>
+        <label>
+          <input type="radio" name="sex" value="Not specified Date of birth" [(ngModel)]="sexAtBirth">Not specified Date of birth
+        </label>
+        <label>
+          <b>  Date of birth</b>
+          <input type="date" [ngModel]="dateOfBirth | date:'yyyy-MM-dd'"
+                 (ngModelChange)="dateOfBirth = $event">
+<!--          [<input type="text" maxlength="1" class="small" placeholder="D">]-->
+<!--          [<input type="text" maxlength="1" class="small" placeholder="D">]/-->
+<!--          [<input type="text" maxlength="1" class="small" placeholder="M">]-->
+<!--          [<input type="text" maxlength="1" class="small" placeholder="M">]/-->
+<!--          [<input type="text" maxlength="1" class="small" placeholder="Y">]-->
+<!--          [<input type="text" maxlength="1" class="small" placeholder="Y">]-->
+<!--          [<input type="text" maxlength="1" class="small" placeholder="Y">]-->
+<!--          [<input type="text" maxlength="1" class="small" placeholder="Y">]-->
+        </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        If date of birth is unknown, record: <b>Age </b>
+        [<input type="number" name="" [ngModel]="ageYears">] years OR
+        [<input type="number" name="" [ngModel]="ageMonths">]
+        months
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1">
+        <b>Healthcare Worker?</b>
+        <label>
+          <input type="radio" name="worker" value="Yes" [ngModel]="healthcareWorker">Yes
+        </label>
+        <label>
+          <input type="radio" name="worker" value="No" [(ngModel)]="healthcareWorker">No
+        </label>
+        <label>
+          <input type="radio" name="worker" value="Unknown" [(ngModel)]="healthcareWorker">Unknown
+        </label>
+
+        <span style="margin-left: 3%;">
+						<b>Laboratory Worker? </b>
+						<label>
+							<input type="radio" name="lworker" value="Yes" [ngModel]="laboratoryWorker">Yes
+						</label>
+						<label>
+							<input type="radio" name="lworker" value="No" [(ngModel)]="laboratoryWorker">No
+						</label>
+						<label>
+							<input type="radio" name="lworker" value="Unknown" [(ngModel)]="laboratoryWorker">Unknown
+						</label>
+					</span>
+
+      </td>
+    <tr>
+      <td>
+        <b>Pregnant? </b>
+        <label>
+          <input type="radio" name="pregnant" value="Yes" [(ngModel)]="pregnant">Yes
+        </label>
+        <label>
+          <input type="radio" name="pregnant" value="No" [(ngModel)]="pregnant">No
+        </label>
+        <label>
+          <input type="radio" name="pregnant" value="Unknown" [(ngModel)]="pregnant">Unknown
+        </label>
+        <label>
+          <input type="radio" name="pregnant" value="N/A" [(ngModel)]="pregnant">N/A
+        </label>
+        <span style="margin-left: 3%;">
+							 <b>If yes: Gestational weeks assessment</b>
+						[<input type="number" name="" [(ngModel)]="pregnantWeeks">]
+							  weeks
+						</span>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+<div>
+  <table class="table tablestyle">
+    <thead>
+    <tr>
+      <th scope="col" class="header">
+        DATE OF ONSET AND ADMISSION VITAL SIGNS (first available data at presentation/admission)
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>Symptom onset (date of first/earliest symptom)</b>
+        <input type="date" [ngModel]="symptonOnset | date:'yyyy-MM-dd'"
+               (ngModelChange)="symptonOnset = $event">
+<!--        [<input type="text" class="small" maxlength="1" placeholder="D">]-->
+<!--        [<input type="text" class="small" maxlength="1" placeholder="D">]/-->
+<!--        [<input type="text" class="small" maxlength="1" placeholder="M">]-->
+<!--        [<input type="text" class="small" maxlength="1" placeholder="M">]/-->
+<!--        [<input type="text" class="small" maxlength="1" value="2">]-->
+<!--        [<input type="text" class="small" maxlength="1" value="0">]-->
+<!--        [<input type="text" class="small" maxlength="1" placeholder="Y">]-->
+<!--        [<input type="text" class="small" maxlength="1" placeholder="Y">]-->
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Admission date at this facility</b>
+        <input type="date" [ngModel]="admissionDate | date:'yyyy-MM-dd'"
+               (ngModelChange)="admissionDate = $event">
+<!--        [<input type="number" placeholder="D">]-->
+<!--        [<input type="number" placeholder="D">]/-->
+<!--        [<input type="number" placeholder="M">]-->
+<!--        [<input type="number" placeholder="M">]/-->
+<!--        [<input type="number" value="2">]-->
+<!--        [<input type="number" value="0">]-->
+<!--        [<input type="number" placeholder="Y">]-->
+<!--        [<input type="number" placeholder="Y">]-->
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Temperature</b>
+        [<input type="number"  [(ngModel)]="temperature">] °C
+        <b>Heart rate</b>
+        [<input type="number" [(ngModel)]="healthRate">].beats/min
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Respiratory rate </b>
+        [<input type="number" [(ngModel)]="respiratoryRate" >] breaths/min
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>BP</b>
+        [<input type="number" [(ngModel)]="BPsystolic">](systolic)
+        [<input type="number" [(ngModel)]="BPdiastolic">]diastolic) mmHg   <b>Severe dehydration</b>
+        <label>
+          <input type="radio" name="dehydration" value="Yes" [(ngModel)]="severeDehydration">Yes
+        </label>
+        <label>
+          <input type="radio" name="dehydration" value="No" [(ngModel)]="severeDehydration">No
+        </label>
+        <label>
+          <input type="radio" name="dehydration" value="Unknown" [(ngModel)]="severeDehydration">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Sternal capillary refill time >2seconds</b>
+        <label>
+          <input type="radio" name="capillary" value="Yes" [(ngModel)]="sternalCapillary">Yes
+        </label>
+        <label>
+          <input type="radio" name="capillary" value="No" [(ngModel)]="sternalCapillary">No
+        </label>
+        <label>
+          <input type="radio" name="capillary" value="Unknown" [(ngModel)]="sternalCapillary">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Oxygen saturation:</b>
+        [<input type="number" [(ngModel)]="oxygenSaturation">]% on
+        <label>
+          <input type="radio" name="oxygen" value="room air" [(ngModel)]="oxygencheck">room air
+        </label>
+        <label>
+          <input type="radio" name="oxygen" value="oxygen therapy" [(ngModel)]="oxygencheck">oxygen therapy
+        </label>
+        <label>
+          <input type="radio" name="oxygen" value="Unknown" [(ngModel)]="oxygencheck">Unknown
+        </label> <b>A V P U</b> (circle one)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Glasgow Coma Score (GCS /15)</b>
+        [<input type="number" [(ngModel)]="glasgowComaScore">] <b>  Malnutrition</b>
+        <label>
+          <input type="radio" name="gcs" value="Yes" [(ngModel)]="mainutrition">Yes
+        </label>
+        <label>
+          <input type="radio" name="gcs" value="No" [(ngModel)]="mainutrition">No
+        </label>
+        <label>
+          <input type="radio" name="gcs" [(ngModel)]="mainutrition">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Mid-upper arm circumference </b>
+        [<input type="number" [(ngModel)]="armCircumferenceheight">]mm <b>Height: </b>
+        [<input type="number" [(ngModel)]="armCircumferenceWeight">]cm <b>Weight:</b>
+        [<input type="number" [(ngModel)]="armCircumference">]kg
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        CO-MORBIDITIES (existing prior to admission) (Unk = Unknown)
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Chronic cardiac disease (not hypertension)
+        <label>
+          <input type="radio" name="cd" value="Yes" [(ngModel)]="chroniccardiac">Yes
+        </label>
+        <label>
+          <input type="radio" name="cd" value="No" [(ngModel)]="chroniccardiac">No
+        </label>
+        <label>
+          <input type="radio" name="cd" value="Unk" [(ngModel)]="chroniccardiac">Unk
+        </label>
+      </td>
+      <td>
+        Diabetes
+        <label>
+          <input type="radio" name="diabet" value="Yes" [(ngModel)]="diabetes">Yes
+        </label>
+        <label>
+          <input type="radio" name="diabet" value="No" [(ngModel)]="diabetes">No
+        </label>
+        <label>
+          <input type="radio" name="diabet" value="Unk" [(ngModel)]="diabetes">Unk
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Hypertension
+        <label>
+          <input type="radio" name="hyperton" value="Yes" [(ngModel)]="hypertension">Yes
+        </label>
+        <label>
+          <input type="radio" name="hyperton" value="No" [(ngModel)]="hypertension">No
+        </label>
+        <label>
+          <input type="radio" name="hyperton" value="Unk" [(ngModel)]="hypertension">Unk
+        </label>
+      </td>
+      <td>
+        Current smoking
+        <label>
+          <input type="radio" name="smok" value="Yes" [(ngModel)]="currentsmoking">Yes
+        </label>
+        <label>
+          <input type="radio" name="smok" value="No" [(ngModel)]="currentsmoking">No
+        </label>
+        <label>
+          <input type="radio" name="smok" value="Unk" [(ngModel)]="currentsmoking">Unk
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Chronic pulmonary disease
+        <label>
+          <input type="radio" name="pulmonary" value="Yes" [(ngModel)]="chronicpulmonary">Yes
+        </label>
+        <label>
+          <input type="radio" name="pulmonary" value="No" [(ngModel)]="chronicpulmonary">No
+        </label>
+        <label>
+          <input type="radio" name="pulmonary" value="Unk" [(ngModel)]="chronicpulmonary">Unk
+        </label>
+      </td>
+      <td>
+        Tuberculosis
+        <label>
+          <input type="radio" name="tuberculios" value="Yes" [(ngModel)]="tuberculosis">Yes
+        </label>
+        <label>
+          <input type="radio" name="tuberculios" value="No" [(ngModel)]="tuberculosis">No
+        </label>
+        <label>
+          <input type="radio" name="tuberculios" value="Unk" [(ngModel)]="tuberculosis">Unk
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Astmha
+        <label>
+          <input type="radio" name="asthma" value="Yes" [(ngModel)]="asthma">Yes
+        </label>
+        <label>
+          <input type="radio" name="asthma" value="No" [(ngModel)]="asthma">No
+        </label>
+        <label>
+          <input type="radio" name="asthma" value="Unk" [(ngModel)]="asthma">Unk
+        </label>
+      </td>
+      <td>
+        Asplenia
+        <label>
+          <input type="radio" name="asplenia" value="Yes" [(ngModel)]="asplenia">Yes
+        </label>
+        <label>
+          <input type="radio" name="asplenia" value="No" [(ngModel)]="asplenia">No
+        </label>
+        <label>
+          <input type="radio" name="asplenia" value="Unk" [(ngModel)]="asplenia">Unk
+        </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td>Chronic kidney disease
+        <label>
+          <input type="radio" name="kidney disease" value="Yes" [(ngModel)]="chronickidney">Yes
+        </label>
+        <label>
+          <input type="radio" name="kidney disease" value="No" [(ngModel)]="chronickidney">No
+        </label>
+        <label>
+          <input type="radio" name="kidney disease" value="Unk" [(ngModel)]="chronickidney ">Unk
+        </label>
+      </td>
+      <td>Malignant neoplasm
+        <label>
+          <input type="radio" name="malignant neoplasm" value="Yes" [(ngModel)]="malignantneoplasm">Yes
+        </label>
+        <label>
+          <input type="radio" name="malignant neoplasm" value="No" [(ngModel)]="malignantneoplasm">No
+        </label>
+        <label>
+          <input type="radio" name="malignant neoplasm" value="Unk" [(ngModel)]="malignantneoplasm">Unk
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Chronic liver disease
+        <label>
+          <input type="radio" name="liver disease" value="Yes" [(ngModel)]="chronicliver">Yes
+        </label>
+        <label>
+          <input type="radio" name="liver disease" value="No" [(ngModel)]="chronicliver">No
+        </label>
+        <label>
+          <input type="radio" name="liver disease" value="Unk" [(ngModel)]="chronicliver">Unk
+        </label>
+      </td>
+      <td rowspan="2">Other
+        <label>
+          <input type="radio" name="other" value="Yes" [(ngModel)]="COMorbitiesOther">Yes
+        </label>
+        <label>
+          <input type="radio" name="other" value="No" [(ngModel)]="COMorbitiesOther">No
+        </label>
+        <label>
+          <input type="radio" name="other" value="Unk" [(ngModel)]="COMorbitiesOther">Unk
+        </label>
+        <br>if yes, specify <input type="text" name="other" [(ngModel)]="COMorbitiesYes">
+      </td>
+    </tr>
+    <tr>
+      <td>Chronic neurological disorder
+        <label>
+          <input type="radio" name="neurological disorder" value="Yes" [(ngModel)]="chronicneurologicaldisorder">Yes
+        </label>
+        <label>
+          <input type="radio" name="neurological disorder" value="No" [(ngModel)]="chronicneurologicaldisorder">No
+        </label>
+        <label>
+          <input type="radio" name="neurological disorder" value="Unk" [(ngModel)]="chronicneurologicaldisorder">Unk
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        HIV
+        <label>
+          <input type="radio" name="hiv" value="Yes-onART" [(ngModel)]="hiv">Yes-onART
+        </label>
+        <label>
+          <input type="radio" name="hiv" value="Yes-not onART" [(ngModel)]="hiv">Yes-not onART
+        </label>
+        <label>
+          <input type="radio" name="hiv" value="No" ngModel="hiv">No
+        </label>
+        <label>
+          <input type="radio" name="hiv" value="Unknown" [(ngModel)]="hiv">Unknown
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div>
+  <table class="table tablestyle">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        CO-MORBIDITIES (existing prior to admission) (Unk = Unknown)
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Angiotensin converting enzyme inhibitors (ACE inhibitors)?
+      </td>
+      <td>
+        <label>
+          <input type="radio" name="ACE inhibitors" value="Yes" [(ngModel)]="ace_inhibitors">Yes
+        </label>
+        <label>
+          <input type="radio" name="ACE inhibitors" value="No" [(ngModel)]="ace_inhibitors">No
+        </label>
+        <label>
+          <input type="radio" name="ACE inhibitors" value="Unknown" [(ngModel)]="ace_inhibitors">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Angiotensin II receptor blockers (ARBs)?
+      </td>
+      <td>
+        <label>
+          <input type="radio" name="ARBs" value="Yes" [(ngModel)]="arbs">Yes
+        </label>
+        <label>
+          <input type="radio" name="ARBs" value="No" [(ngModel)]="arbs">No
+        </label>
+        <label>
+          <input type="radio" name="ARBs" value="Unknown" [(ngModel)]="arbs">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Non-steroidal anti-inflammatory (NSAID)?</td>
+      <td>
+
+        <label>
+          <input type="radio" name="NSAID" value="Yes" [(ngModel)]="nsaid">Yes
+        </label>
+        <label>
+          <input type="radio" name="NSAID" value="No" [(ngModel)]="nsaid">No
+        </label>
+        <label>
+          <input type="radio" name="NSAID" value="Unknown" [(ngModel)]="nsaid">Unknown
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!------------------------------------------ Page 3 ------------------------------>
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        SIGNS AND SYMPTOMS ON ADMISSION (Unk = Unknown)
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="floatleft">History of fever</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="fever" value="Yes" [(ngModel)]="historyOfFever">Yes
+							</label>
+							<label>
+								<input type="radio" name="fever" value="No" [(ngModel)]="historyOfFever">No
+							</label>
+							<label>
+								<input type="radio" name="fever" value="Unknown" [(ngModel)]="historyOfFever">Unknown
+							</label>
+						</span>
+      </td>
+      <td>
+        <span class="floatleft">Lower chest wall indrawing</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="indrawing" value="Yes" [(ngModel)]="lower_chest_wall_indrawing">Yes
+							</label>
+							<label>
+								<input type="radio" name="indrawing" value="No" [(ngModel)]="lower_chest_wall_indrawing">No
+							</label>
+							<label>
+								<input type="radio" name="indrawing" value="Unknown" [(ngModel)]="lower_chest_wall_indrawing">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="3">
+        <span class="floatleft">Cough</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="Cough" [(ngModel)]="admission_cough">Yes
+							</label>
+							<label>
+								<input type="radio" name="Cough" value="No" [(ngModel)]="admission_cough">No
+							</label>
+							<label>
+								<input type="radio" name="Cough" value="Unknown" [(ngModel)]="admission_cough">Unknown
+							</label>
+						</span>
+
+
+        <span class="floatleft">with sputum production</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="sputum" value="Yes" [(ngModel)]="with_sputum_production">Yes
+							</label>
+							<label>
+								<input type="radio" name="sputum" value="No" [(ngModel)]="with_sputum_production">No
+							</label>
+							<label>
+								<input type="radio" name="sputum" value="Unknown" [(ngModel)]="with_sputum_production">Unknown
+							</label>
+						</span>
+
+        <span class="floatleft">with haemoptysis</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="haemoptysis" value="Yes" [(ngModel)]="with_haemptysis">Yes
+							</label>
+							<label>
+								<input type="radio" name="haemoptysis" value="No" [(ngModel)]="with_haemptysis">No
+							</label>
+							<label>
+								<input type="radio" name="haemoptysis" value="Unknown" [(ngModel)]="with_haemptysis">Unknown
+							</label>
+						</span>
+
+      </td>
+      <td>
+        <span class="floatleft">Headache</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="headache" value="Yes" [(ngModel)]="headache">Yes
+							</label>
+							<label>
+								<input type="radio" name="headache" value="No" [(ngModel)]="headache">No
+							</label>
+							<label>
+								<input type="radio" name="headache" value="Unknown" [(ngModel)]="headache">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="floatleft">Altered consciousness/ confusion</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="consciousness" value="Yes" [(ngModel)]="altered_conscousness">Yes
+							</label>
+							<label>
+								<input type="radio" name="consciousness" value="No" [(ngModel)]="altered_conscousness">No
+							</label>
+							<label>
+								<input type="radio" name="consciousness" value="Unknown" [(ngModel)]="altered_conscousness">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        <span class="floatleft">Seizures</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="seizures" value="Yes" [(ngModel)]="seizures">Yes
+							</label>
+							<label>
+								<input type="radio" name="seizures" value="No" [(ngModel)]="seizures">No
+							</label>
+							<label>
+								<input type="radio" name="seizures" value="Unknown" [(ngModel)]="seizures">Unknown
+							</label>
+						</span>
+        <span class="floatleft">Abdominal pain</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="abdominal pain" value="Yes" [(ngModel)]="abdominal_pain">Yes
+							</label>
+							<label>
+								<input type="radio" name="abdominal pain" value="No" [(ngModel)]="abdominal_pain">No
+							</label>
+							<label>
+								<input type="radio" name="abdominal pain" value="Unknown" [(ngModel)]="abdominal_pain">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+        <span class="floatleft">Sore throat</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="sore throat" value="Yes" [(ngModel)]="sore_throat">Yes
+							</label>
+							<label>
+								<input type="radio" name="sore throat" value="No" [(ngModel)]="sore_throat">No
+							</label>
+							<label>
+								<input type="radio" name="sore throat" value="Unknown" [(ngModel)]="sore_throat">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="floatleft">Runny nose (rhinorrhoea).</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="rhinorrhoea" value="Yes" [(ngModel)]="runny_nose">Yes
+							</label>
+							<label>
+								<input type="radio" name="rhinorrhoea" value="No" [(ngModel)]="runny_nose">No
+							</label>
+							<label>
+								<input type="radio" name="rhinorrhoea" value="Unknown" [(ngModel)]="runny_nose">Unknown
+							</label>
+						</span>
+      </td>
+      <td>
+        <span class="floatleft">Vomiting / Nausea</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="vomiting" value="Yes" [(ngModel)]="vomiting">Yes
+							</label>
+							<label>
+								<input type="radio" name="vomiting" value="No" [(ngModel)]="vomiting">No
+							</label>
+							<label>
+								<input type="radio" name="vomiting" value="Unknown" [(ngModel)]="vomiting">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="floatleft">Wheezing</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="wheezing" value="Yes" [(ngModel)]="wheezing">Yes
+							</label>
+							<label>
+								<input type="radio" name="wheezing" value="No" [(ngModel)]="wheezing">No
+							</label>
+							<label>
+								<input type="radio" name="wheezing" value="Unknown" [(ngModel)]="wheezing">Unknown
+							</label>
+						</span>
+      </td>
+      <td>
+        <span class="floatleft">Diarrhoea</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="diarrhoea" value="Yes" [(ngModel)]="diarrhoea">Yes
+							</label>
+							<label>
+								<input type="radio" name="diarrhoea" value="No" [(ngModel)]="diarrhoea">No
+							</label>
+							<label>
+								<input type="radio" name="diarrhoea" value="Unknown" [(ngModel)]="diarrhoea">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="floatleft">Chest pain</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="chest pain" value="Yes" [(ngModel)]="chest_pain">Yes
+							</label>
+							<label>
+								<input type="radio" name="chest pain" value="No" [(ngModel)]="chest_pain">No
+							</label>
+							<label>
+								<input type="radio" name="chest pain" value="Unknown" [(ngModel)]="chest_pain">Unknown
+							</label>
+						</span>
+      </td>
+      <td>
+        <span class="floatleft">Conjunctivitis</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="conjunctivitis" value="Yes" [(ngModel)]="conjunctivitis">Yes
+							</label>
+							<label>
+								<input type="radio" name="conjunctivitis" value="No" [(ngModel)]="conjunctivitis">No
+							</label>
+							<label>
+								<input type="radio" name="conjunctivitis" value="Unknown" [(ngModel)]="conjunctivitis">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="floatleft">Muscle aches (myalgia)</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="myalgia" value="Yes" [(ngModel)]="muscle_aches">Yes
+							</label>
+							<label>
+								<input type="radio" name="myalgia" value="No" [(ngModel)]="muscle_aches">No
+							</label>
+							<label>
+								<input type="radio" name="myalgia" value="Unknown" [(ngModel)]="muscle_aches">Unknown
+							</label>
+						</span>
+      </td>
+      <td>
+        <span class="floatleft">Skin rash</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="skin rash" value="Yes" [(ngModel)]="skin_rash">Yes
+							</label>
+							<label>
+								<input type="radio" name="skin rash" value="No" [(ngModel)]="skin_rash">No
+							</label>
+							<label>
+								<input type="radio" name="skin rash" value="Unknown" [(ngModel)]="skin_rash">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="floatleft">Joint pain (arthralgia).</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="arthralgia" value="Yes" [(ngModel)]="joint_pain">Yes
+							</label>
+							<label>
+								<input type="radio" name="arthralgia" value="No" [(ngModel)]="joint_pain">No
+							</label>
+							<label>
+								<input type="radio" name="arthralgia" value="Unknown" [(ngModel)]="joint_pain">Unknown
+							</label>
+						</span>
+      </td>
+      <td>
+        <span class="floatleft">Skin ulcers</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="ulcers" value="Yes" [(ngModel)]="skin_ulcers">Yes
+							</label>
+							<label>
+								<input type="radio" name="ulcers" value="No" [(ngModel)]="skin_ulcers">No
+							</label>
+							<label>
+								<input type="radio" name="ulcers" value="Unknown" [(ngModel)]="skin_ulcers">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        <span class="floatleft">Fatigue / Malaise</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="fatigue malaise" value="Yes" [(ngModel)]="fatigue_malaise">Yes
+							</label>
+							<label>
+								<input type="radio" name="fatigue malaise" value="No" [(ngModel)]="fatigue_malaise">No
+							</label>
+							<label>
+								<input type="radio" name="fatigue malaise" value="Unknown" [(ngModel)]="fatigue_malaise">Unknown
+							</label>
+						</span>
+        <span class="floatleft">Shortness of breath</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="shortness of breath ." value="Yes" [(ngModel)]="shortness_of_breath">Yes
+							</label>
+							<label>
+								<input type="radio" name="shortness of breath ." value="No" [(ngModel)]="shortness_of_breath">No
+							</label>
+							<label>
+								<input type="radio" name="shortness of breath ." value="Unknown" [(ngModel)]="shortness_of_breath">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="floatleft">Lymphadenopathy</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="lymphadenopathy" value="Yes" [(ngModel)]="lymphadenopathy">Yes
+							</label>
+							<label>
+								<input type="radio" name="lymphadenopathy" value="No" [(ngModel)]="lymphadenopathy">No
+							</label>
+							<label>
+								<input type="radio" name="lymphadenopathy" value="Unknown" [(ngModel)]="lymphadenopathy">Unknown
+							</label>
+						</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="floatleft">Inability to walk</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="inability to walk" value="Yes" [(ngModel)]="inability_to_walk">Yes
+							</label>
+							<label>
+								<input type="radio" name="inability to walk" value="No" [(ngModel)]="inability_to_walk">No
+							</label>
+							<label>
+								<input type="radio" name="inability to walk" value="Unknown" [(ngModel)]="inability_to_walk">Unknown
+							</label>
+						</span>
+      </td>
+      <td rowspan="2">
+
+        <span class="floatleft">Bleeding (Haemorrhage).</span>
+        <span class="floatright">
+						<label>
+							<input type="radio" name="haemorrhage" value="Yes" [(ngModel)]="bleeding">Yes
+							</label>
+							<label>
+								<input type="radio" name="haemorrhage" value="No" [(ngModel)]="bleeding">No
+							</label>
+							<label>
+								<input type="radio" name="haemorrhage" value="Unknown" [(ngModel)]="bleeding">Unknown
+							</label>
+						</span>
+        <span>
+							If bleeding: specify site(s):  <input type="text" name="bleeding" [(ngModel)]="bleedingYes">
+						</span>
+      </td>
+    </tr>
+    <tr colspan="2">
+      <td>
+        Other
+        <label>
+          <input type="radio" name="other 2" value="Yes" [(ngModel)]="admission_other">Yes
+        </label>
+        <label>
+          <input type="radio" name="haemorrhage" value="No" [(ngModel)]="admission_other">No
+        </label>
+        <label>
+          <input type="radio" name="haemorrhage" value="Unknown" [(ngModel)]="admission_other">Unknown
+        </label>
+        If yes, specify: <input type="text" name="bother2 specify" [(ngModel)]="admission_other_yes">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        MEDICATION Is the patient CURRENTLY receiving any of the following?
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>Oral/orogastric fluids?</b>
+        <label>
+          <input type="radio" name="orogastric" value="Yes" [(ngModel)]="oral_fluids">Yes
+        </label>
+        <label>
+          <input type="radio" name="orogastric" value="No" [(ngModel)]="oral_fluids">No
+        </label>
+        <label>
+          <input type="radio" name="orogastric" value="Unknown" [(ngModel)]="oral_fluids">Unknown
+        </label>
+        <span>    </span>
+        <b>Intravenous fluids?</b>
+        <label>
+          <input type="radio" name="intravenous fluids" value="Yes" [(ngModel)]="intravenous_fluids"> Yes
+        </label>
+        <label>
+          <input type="radio" name="intravenous fluids" value="No" [(ngModel)]="intravenous_fluids"> No
+        </label>
+        <label>
+          <input type="radio" name="intravenous fluids" value="Unknown" [(ngModel)]="intravenous_fluids"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Antiviral?</b>
+        <label>
+          <input type="radio" name="antiviral" value="Yes" [(ngModel)]="antiviral"> Yes
+        </label>
+        <label>
+          <input type="radio" name="antiviral" value="No" [(ngModel)]="antiviral"> No
+        </label>
+        <label>
+          <input type="radio" name="antiviral" value="Unknown" [(ngModel)]="antiviral"> Unknown
+        </label>
+        <b>If yes: </b>
+        <label>
+          <input type="radio" name="antiviralr" value="Ribavirin" [(ngModel)]="antiviral_yes"> Ribavirin
+        </label>
+        <label>
+          <input type="radio" name="antiviralr" value="Lopinavir/Ritonavir" [(ngModel)]="antiviral_yes"> Lopinavir/Ritonavir
+        </label>
+        <label>
+          <input type="radio" name="antiviralr" value="Neuraminidase inhibitor" [(ngModel)]="antiviral_yes"> Neuraminidase inhibitor
+        </label>
+        <label>
+          <input type="radio" name="antiviralr" value="Interferon alpha" [(ngModel)]="antiviral_yes"> Interferon alpha
+        </label>
+        <label>
+          <input type="radio" name="antiviralr" value="Interferon beta" [(ngModel)]="antiviral_yes"> Interferon beta
+        </label>
+        <label>
+          <input type="radio" name="antiviralr" [(ngModel)]="antiviral_yes_other"> Other
+        </label>
+        <label>
+          .specify <input type="text" name="antiviralr" [(ngModel)]="antiviral_yes_other">
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Corticosteroid?</b>
+        <label>
+          <input type="radio" name="corticosteroid" value="Yes" [(ngModel)]="corticosteroid"> Yes
+        </label>
+        <label>
+          <input type="radio" name="corticosteroid" value="No" [(ngModel)]="corticosteroid"> No
+        </label>
+        <label>
+          <input type="radio" name="corticosteroid" value="Unknown" [(ngModel)]="corticosteroid"> Unknown
+        </label>
+        <b>      If yes, route:</b>
+        <label>
+          <input type="radio" name="corticosteroid" value="Oral" [(ngModel)]="corticosterois_yes"> Oral
+        </label>
+        <label>
+          <input type="radio" name="corticosteroid" value="Intervenous" [(ngModel)]="corticosterois_yes"> Intravenous
+        </label>
+        <label>
+          <input type="radio" name="corticosteroid" value="Inhaled" [(ngModel)]="corticosterois_yes"> Inhaled
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>If yes, please provide agent and maximum daily dose: </b><input type="text" name="agent of daily dose" [(ngModel)]="corticosterois_daily_dose">
+      </td>
+    </tr>
+    <tr>
+      <td>
+						<span class="floatleft">
+							<b>Antibiotic?</b>
+							<label>
+							<input type="radio" name="antibiotic" value="Yes" [(ngModel)]="antibiotic"> Yes
+							</label>
+							<label>
+								<input type="radio" name="antibiotic" value="No" [(ngModel)]="antibiotic"> No
+							</label>
+							<label>
+								<input type="radio" name="antibiotic" value="Unknown" [(ngModel)]="antibiotic"> Unknown
+							</label>
+						</span>
+        <span class="floatright">
+							<b>Antifungal agent?</b>
+							<label>
+							<input type="radio" name="antifungal agent" value="Yes" [(ngModel)]="antifungal_agent"> Yes
+							</label>
+							<label>
+								<input type="radio" name="antifungal agent" value="No" [(ngModel)]="antifungal_agent"> No
+							</label>
+							<label>
+								<input type="radio" name="antifungal agent" value="Unknown" [(ngModel)]="antifungal_agent"> Unknown
+							</label>
+						</span>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Antimalarial agent?</b>
+        <label>
+          <input type="radio" name="antimalarial agent" value="Yes" [(ngModel)]="antimalarial_agent"> Yes
+        </label>
+        <label>
+          <input type="radio" name="antimalarial agent" value="No" [(ngModel)]="antimalarial_agent"> No
+        </label>
+        <label>
+          <input type="radio" name="antimalarial agent" value="Unknown" [(ngModel)]="antimalarial_agent"> Unknown
+        </label>
+        <b>If yes, specify:</b>
+        <input type="text" name="antimalarial agent" [(ngModel)]="antimalarial_agent_yes">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Experimental agent?</b>
+        <label>
+          <input type="radio" name="experimental agent" value="Yes" [(ngModel)]="experiment_agent"> Yes
+        </label>
+        <label>
+          <input type="radio" name="experimental agent" value="No" [(ngModel)]="experiment_agent"> No
+        </label>
+        <label>
+          <input type="radio" name="experimental agent" value="Unknown" [(ngModel)]="experiment_agent"> Unknown
+        </label>
+        <b>If yes, specify:</b>
+        <input type="text" name="experimental agent" [(ngModel)]="experiment_agent_yes">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Non-steroidal anti-inflammatory (NSAID) </b>
+        <label>
+          <input type="radio" name="anti-inflammatory" value="Yes" [(ngModel)]="non_steroidal_anti_inflamatory"> Yes
+        </label>
+        <label>
+          <input type="radio" name="anti-inflammatory" value="No" [(ngModel)]="non_steroidal_anti_inflamatory"> No
+        </label>
+        <label>
+          <input type="radio" name="anti-inflammatory" value="Unknown" [(ngModel)]="non_steroidal_anti_inflamatory"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Angiotensin converting enzyme inhibitors (ACE inhibitors)</b>
+        <label>
+          <input type="radio" name="enzyme inhibitors" value="Yes" [(ngModel)]="angiotensin_converting_enzyme"> Yes
+        </label>
+        <label>
+          <input type="radio" name="enzyme inhibitors" value="No" [(ngModel)]="angiotensin_converting_enzyme"> No
+        </label>
+        <label>
+          <input type="radio" name="enzyme inhibitors" value="Unknown" [(ngModel)]="angiotensin_converting_enzyme"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Angiotensin II receptor blockers (ARBs)</b>
+        <label>
+          <input type="radio" name="receptor blocker" value="Yes" [(ngModel)]="angitensin_receptor_blockers"> Yes
+        </label>
+        <label>
+          <input type="radio" name="receptor blocker" value="No" [(ngModel)]="angitensin_receptor_blockers"> No
+        </label>
+        <label>
+          <input type="radio" name="receptor blocker" value="Unknown" [(ngModel)]="angitensin_receptor_blockers"> Unknown
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        SUPPORTIVE CARE Is the patient CURRENTLY receiving any of the following?
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>
+          ICU or High Dependency Unit admission?
+        </b>
+        <label>
+          <input type="radio" name="admission" value="Yes" [(ngModel)]="icu_or_high_dependency"> Yes
+        </label>
+        <label>
+          <input type="radio" name="admission" value="No" [(ngModel)]="icu_or_high_dependency"> No
+        </label>
+        <label>
+          <input type="radio" name="admission" value="Unknown" [(ngModel)]="icu_or_high_dependency"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Oxygen therapy?</b>
+        <label>
+          <input type="radio" name="Oxygen therapy" value="Yes" [(ngModel)]="oxygen_therapy"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Oxygen therapy" value="No" [(ngModel)]="oxygen_therapy"> No
+        </label>
+        <label>
+          <input type="radio" name="Oxygen therapy" value="Unknown" [(ngModel)]="oxygen_therapy"> Unknown
+        </label>
+        <b>   If yes, complete all below</b>
+        <br>
+        <b>O2 flow:</b>
+        <label>
+          <input type="radio" name="O2 flow" value="1-5 L/min" [(ngModel)]="o2_flow"> 1-5 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow" value="6-10 L/min" [(ngModel)]="o2_flow"> 6-10 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow" value="11-15 L/min" [(ngModel)]="o2_flow"> 11-15 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow" value=">15 L/min" [(ngModel)]="o2_flow"> >15 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow" value="Unknown" [(ngModel)]="o2_flow"> Unknown
+        </label>
+        <br>
+        <b>Source of oxygen:</b>
+          <label>
+            <input type="radio" name="Source of oxygen" value="Piped" [(ngModel)]="source_of_oxygen"> Piped
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen" value="Cylinder" [(ngModel)]="source_of_oxygen"> Cylinder
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen" value="Concentrator" [(ngModel)]="source_of_oxygen"> Concentrator
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen" value="Unknown" [(ngModel)]="source_of_oxygen"> Unknown
+          </label>
+          <br>
+          <b>Interface:</b>
+          <label>
+            <input type="radio" name="Interface" value="Nasal prongs" [(ngModel)]="interface"> Nasal prongs
+          </label>
+          <label>
+            <input type="radio" name="Interface" value="HF nasal cannula" [(ngModel)]="interface"> HF nasal cannula
+          </label>
+          <label>
+            <input type="radio" name="Interface" value="Mask" [(ngModel)]="interface"> Mask
+          </label>
+          <label>
+            <input type="radio" name="Interface" value="Mask with reservoir" [(ngModel)]="interface"> Mask with reservoir
+          </label>
+          <label>
+            <input type="radio" name="Interface" value="CPAP/NIV mask" [(ngModel)]="interface"> CPAP/NIV mask
+          </label>
+          <label>
+            <input type="radio" name="Interface" value="Unknown" [(ngModel)]="interface"> Unknown
+          </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Non-invasive ventilation? (e.g.BIPAP/CPAP)</b>
+        <label>
+          <input type="radio" name="Non-invasive ventilation" value="Yes" [(ngModel)]="non_invasive_ventilation"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Non-invasive ventilation" value="No" [(ngModel)]="non_invasive_ventilation"> No
+        </label>
+        <label>
+          <input type="radio" name="Non-invasive ventilation" value="N/A" [(ngModel)]="non_invasive_ventilation"> N/A
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Invasive ventilation (Any)?</b>
+        <label>
+          <input type="radio" name="nvasive ventilation" value="Yes" [(ngModel)]="invasive_ventilation"> Yes
+        </label>
+        <label>
+          <input type="radio" name="nvasive ventilation" value="No" [(ngModel)]="invasive_ventilation"> No
+        </label>
+        <label>
+          <input type="radio" name="nvasive ventilation" value="Unknown" [(ngModel)]="invasive_ventilation"> Unknown
+        </label>
+        <b>     Inotropes/vasopressors?</b>
+        <label>
+          <input type="radio" name="notropes/vasopressors" value="Yes" [(ngModel)]="introper_vassopressors"> Yes
+        </label>
+        <label>
+          <input type="radio" name="notropes/vasopressors" value="No" [(ngModel)]="introper_vassopressors"> No
+        </label>
+        <label>
+          <input type="radio" name="notropes/vasopressors" value="Unknown" [(ngModel)]="introper_vassopressors"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Extracorporeal (ECMO) support?</b>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support" value="Yes" [(ngModel)]="ecmo"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support" value="No" [(ngModel)]="ecmo"> No
+        </label>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support" value="Unknown" [(ngModel)]="ecmo"> Unknown
+        </label>
+        <label>
+        <b>         Prone position?</b>
+        <input type="radio" name="Prone position" value="Yes" [(ngModel)]="prone_position"> Yes
+        </label>
+        <label>
+          <input type="radio" name="EProne position" value="No" [(ngModel)]="prone_position"> No
+        </label>
+        <label>
+          <input type="radio" name="Prone position" value="Unknown" [(ngModel)]="prone_position"> Unknown
+        </label>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <table class="table tablestyle">
+    <thead>
+    <tr>
+      <th colspan="10" scope="col" class="header">
+        LABORATORY RESULTS ON ADMISSION (*record units if different from those listed)
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class ="span3">Parameter</td>
+      <td class="span2">Value*</td>
+      <td class="span1">Not done</td>
+      <td class="span3">Parameter</td>
+      <td class="span2">Value*</td>
+      <td class="span1">Not done</td>
+    </tr>
+    <tr>
+      <td>Haemoglobin (g/L)</td>
+      <td><input type="text" name="haemoglobin" [(ngModel)]="haemoglobin"></td>
+      <td><input type="checkbox" name="haemoglobinr" value="Not done" [(ngModel)]="haemoglobin"></td>
+      <td>Creatinine (μmol/L)</td>
+      <td><input type="text" name="Creatinine" [(ngModel)]="creatinine"></td>
+      <td><input type="checkbox" name="Creatininer" value="Not done" [(ngModel)]="creatinine"></td>
+    </tr>
+    <tr>
+      <td>WBC count (x109/L)</td>
+      <td><input type="text" name="WBC count (x109/L)" [(ngModel)]="wbc_count"></td>
+      <td><input type="checkbox" name="WBC count (x109/L)r" value="Not Done" [(ngModel)]="wbc_count"></td>
+      <td>Sodium (mEq/L)</td>
+      <td><input type="text" name="Sodium (mEq/L)" [(ngModel)]="sodium"></td>
+      <td><input type="checkbox" name="Sodium (mEq/L)r" value="Not done" [(ngModel)]="sodium"></td>
+    </tr>
+    <tr>
+      <td>Haematocrit (%)</td>
+      <td><input type="text" name="Haematocrit (%)" [(ngModel)]="haemotocrit"></td>
+      <td><input type="checkbox" name="Haematocrit (%)r" value="Not done" [(ngModel)]="haemotocrit"></td>
+      <td>Potassium (mEq/L)</td>
+      <td><input type="text" name="Potassium (mEq/L)" [(ngModel)]="pottasium"></td>
+      <td><input type="checkbox" name="Potassium (mEq/L)r" value="Not done" [(ngModel)]="pottasium"></td>
+    </tr>
+    <tr>
+      <td>Platelets (x109/L)</td>
+      <td><input type="text" name="Platelets (x109/L)" [(ngModel)]="plateles"></td>
+      <td><input type="checkbox" name="Platelets (x109/L)r" value="Not done" [(ngModel)]="plateles"></td>
+      <td>Procalcitonin (ng/mL)</td>
+      <td><input type="text" name="Procalcitonin (ng/mL)" [(ngModel)]="procalacitonim"></td>
+      <td><input type="checkbox" name="Procalcitonin (ng/mL)r" value="Not done" [(ngModel)]="procalacitonim"></td>
+    </tr>
+    <tr>
+      <td>APTT/APTR</td>
+      <td><input type="text" name="APTT/APTR" [(ngModel)]="aptt_aptr"></td>
+      <td><input type="checkbox" name="APTT/APTRr" value="Not done" [(ngModel)]="aptt_aptr"></td>
+      <td>CRP (mg/L)</td>
+      <td><input type="text" name="CRP (mg/L)" [(ngModel)]="crp"></td>
+      <td><input type="checkbox" name="CRP (mg/L)r" value="Not done" [(ngModel)]="crp"></td>
+    </tr>
+    <tr>
+      <td>PT (seconds)</td>
+      <td><input type="text" name="PT (seconds)" [(ngModel)]="pt"></td>
+      <td><input type="checkbox" name="PT (seconds)r" value="Not done" [(ngModel)]="pt"></td>
+      <td>LDH (U/L)</td>
+      <td><input type="text" name="LDH (U/L)" [(ngModel)]="ldh"></td>
+      <td><input type="checkbox" name="LDH (U/L)r" value="Not done" [(ngModel)]="ldh"></td>
+    </tr>
+    <tr>
+      <td>INR</td>
+      <td><input type="text" name="INR" [(ngModel)]="inr"></td>
+      <td><input type="checkbox" name="INRr" value="Not done" [(ngModel)]="inr"></td>
+      <td>Creatine kinase (U/L)</td>
+      <td><input type="text" name="Creatine kinase (U/L)" [(ngModel)]="creatine_kinase"></td>
+      <td><input type="checkbox" name="Creatine kinase (U/L)r" value="Not done" [(ngModel)]="creatine_kinase"></td>
+    </tr>
+    <tr>
+      <td>ALT/SGPT (U/L)</td>
+      <td><input type="text" name="ALT/SGPT (U/L)" [(ngModel)]="alt_sgpt"></td>
+      <td><input type="checkbox" name="ALT/SGPT (U/L)r" value="Not done" [(ngModel)]="alt_sgpt"></td>
+      <td>Troponin (ng/mL)</td>
+      <td><input type="text" name="Troponin (ng/mL)" [(ngModel)]="troponim"></td>
+      <td><input type="checkbox" name="Troponin (ng/mL)r" value="Not done" [(ngModel)]="troponim"></td>
+    </tr>
+    <tr>
+      <td>Total bilirubin (μmol/L)</td>
+      <td><input type="text" name="Total bilirubin (μmol/L)" [(ngModel)]="total_bilirubin"></td>
+      <td><input type="checkbox" name="Total bilirubin (μmol/L)r" value="Not done" [(ngModel)]="total_bilirubin"></td>
+      <td>ESR (mm/hr)</td>
+      <td><input type="text" name="ESR (mm/hr)" [(ngModel)]="esr"></td>
+      <td><input type="checkbox" name="ESR (mm/hr)r" value="Not done" [(ngModel)]="esr"></td>
+    </tr>
+    <tr>
+      <td>AST/SGOT (U/L)</td>
+      <td><input type="text" name="AST/SGOT (U/L)" [(ngModel)]="ast_sgot"></td>
+      <td><input type="checkbox" name="AST/SGOT (U/L)r" value="Not done" [(ngModel)]="ast_sgot"></td>
+      <td>D-dimer (mg/L)</td>
+      <td><input type="text" name="D-dimer (mg/L)" [(ngModel)]="d_dimer"></td>
+      <td><input type="checkbox" name="D-dimer (mg/L)r" value="Not done" [(ngModel)]="d_dimer"></td>
+    </tr>
+    <tr>
+      <td>Urea (BUN) (mmol/L)</td>
+      <td><input type="text" name="Urea (BUN) (mmol/L)" [(ngModel)]="urea_bun"></td>
+      <td><input type="checkbox" name="Urea (BUN) (mmol/L)r"value="Not done" [(ngModel)]="urea_bun"></td>
+      <td>Ferritin (ng/mL)</td>
+      <td><input type="text" name="Ferritin (ng/mL)" [(ngModel)]="ferritin"></td>
+      <td><input type="checkbox" name="Ferritin (ng/mL)r" value="Not done" [(ngModel)]="ferritin"></td>
+    </tr>
+    <tr>
+      <td>Lectate (mmol/L)</td>
+      <td><input type="text" name="Lectate (mmol/L)" [(ngModel)]="lactate"></td>
+      <td><input type="checkbox" name="Lectate (mmol/L)"  value="Not done" [(ngModel)]="lactate"></td>
+      <td>IL-6 (pg/mL)</td>
+      <td><input type="text" name="IL-6 (pg/mL)" [(ngModel)]="il_6"></td>
+      <td><input type="checkbox" name="IL-6 (pg/mL)r" value="Not done" [(ngModel)]="il_6"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-------------------------------- Page 4  -------------------------------->
+
+<div>
+  <h6><b>MODULE 2: follow-up (frequency of completion determined by available resources)</b></h6>
+</div>
+<div>
+
+  <table class="table tablestyle">
+    <thead>
+    <tr>
+      <th scope="col" class="header">
+        VITAL SIGNS (record most abnormal value between 00:00 to 24:00)
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>Temperature</b>
+        [<input type="number" [(ngModel)]="vital_sighns_temperature">] °C <b>Heart rate</b>
+        [<input type="number" [(ngModel)]="heart_rate">] beats/min
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Respiratory rate </b>
+        [<input type="number" [(ngModel)]="respiratory_rate">] breaths/min
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>BP</b>
+        [<input type="number" [(ngModel)]="bp_systolic">](systolic)
+        [<input type="number" [(ngModel)]="bp_diastolic">](diastolic) mmHg
+        <b>Severe dehydration</b>
+        <label>
+          <input type="radio" name="dehydration" value="Yes" [(ngModel)]="severe_dehydration">Yes
+        </label>
+        <label>
+          <input type="radio" name="dehydration" value="No" [(ngModel)]="severe_dehydration">No
+        </label>
+        <label>
+          <input type="radio" name="dehydration" value="Unknown" [(ngModel)]="severe_dehydration">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Sternal capillary refill time >2seconds</b>
+        <label>
+          <input type="radio" name="capillary" value="Yes" [(ngModel)]="sternal_capillary_refill_time_upper_2">Yes
+        </label>
+        <label>
+          <input type="radio" name="capillary" value="No" [(ngModel)]="sternal_capillary_refill_time_upper_2">No
+        </label>
+        <label>
+          <input type="radio" name="capillary" value="Unknown" [(ngModel)]="sternal_capillary_refill_time_upper_2">Unknown
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Glasgow Coma Score (GCS /15)</b>
+        [<input type="number" [(ngModel)]="glasgow_come_score">]
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Oxygen saturation:</b>
+        [<input type="number" [(ngModel)]="oxygen_saturation_percent">]% on
+        <label>
+          <input type="radio" name="oxygen" value="room air" [(ngModel)]="oxygen_saturation_on">room air
+        </label>
+        <label>
+          <input type="radio" name="oxygen" value="oxygen therapy" [(ngModel)]="oxygen_saturation_on">oxygen therapy
+        </label>
+        <label>
+          <input type="radio" name="oxygen" value="Unknown" [(ngModel)]="oxygen_saturation_on">Unknown
+        </label> <b>   A V P U</b> (circle one)
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="8" scope="col" class="header">
+        DAILY CLINICAL FEATURES (Unk = Unknown)
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td colspan="2">Cough</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Cough" value="Yes" [(ngModel)]="daily_clinical_feautres_cough">Yes
+        </label>
+        <label>
+          <input type="radio" name="Cough" value="No" [(ngModel)]="daily_clinical_feautres_cough">No
+        </label>
+        <label>
+          <input type="radio" name="Cough" value="Unknown" [(ngModel)]="daily_clinical_feautres_cough">Unknown
+        </label>
+      </td>
+      <td colspan="2">Seizures</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Seizures" value="Yes" [(ngModel)]="daily_clinical_feautres_seizures">Yes
+        </label>
+        <label>
+          <input type="radio" name="Seizures" value="No" [(ngModel)]="daily_clinical_feautres_seizures">No
+        </label>
+        <label>
+          <input type="radio" name="Seizures" value="Unknown" [(ngModel)]="daily_clinical_feautres_seizures">Unknown
+        </label>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">and sputum production</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="and sputum production" value="Yes" [(ngModel)]="daily_clinical_feautres_and_sputum_production">Yes
+        </label>
+        <label>
+          <input type="radio" name="and sputum production" value="No" [(ngModel)]="daily_clinical_feautres_and_sputum_production">No
+        </label>
+        <label>
+          <input type="radio" name="and sputum production" value="Unknown" [(ngModel)]="daily_clinical_feautres_and_sputum_production">Unknown
+        </label>
+      </td>
+      <td colspan="2">Vomiting / Nausea</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Vomiting / Nausea" value="Yes" [(ngModel)]="daily_clinical_feautres_vomiting_neusea">Yes
+        </label>
+        <label>
+          <input type="radio" name="Vomiting / Nausea" value="No" [(ngModel)]="daily_clinical_feautres_vomiting_neusea">No
+        </label>
+        <label>
+          <input type="radio" name="Vomiting / Nausea" value="Unknown" [(ngModel)]="daily_clinical_feautres_vomiting_neusea">Unknown
+        </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Sore throat.</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Sore throat" value="Yes" [(ngModel)]="daily_clinical_feautres_sore_throat">Yes
+        </label>
+        <label>
+          <input type="radio" name="Sore throat" value="No" [(ngModel)]="daily_clinical_feautres_sore_throat">No
+        </label>
+        <label>
+          <input type="radio" name="Sore throat" value="Unknown" [(ngModel)]="daily_clinical_feautres_sore_throat">Unknown
+        </label>
+      </td>
+      <td colspan="2">Diarrhoea</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Diarrhoea" value="Yes" [(ngModel)]="daily_clinical_feautres_diarrhoea">Yes
+        </label>
+        <label>
+          <input type="radio" name="Diarrhoea" value="No" [(ngModel)]="daily_clinical_feautres_diarrhoea">No
+        </label>
+        <label>
+          <input type="radio" name="Diarrhoea" value="Unknown" [(ngModel)]="daily_clinical_feautres_diarrhoea">Unknown
+        </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Chest pain</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Chest pain" value="Yes" [(ngModel)]="daily_clinical_feautres_chest_pain">Yes
+        </label>
+        <label>
+          <input type="radio" name="Chest pain" value="No" [(ngModel)]="daily_clinical_feautres_chest_pain">No
+        </label>
+        <label>
+          <input type="radio" name="Chest pain" value="Unknown" [(ngModel)]="daily_clinical_feautres_chest_pain">Unknown
+        </label>
+      </td>
+      <td colspan="2">Conjunctivitis</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Conjunctivitis" value="Yes" [(ngModel)]="daily_clinical_feautres_conjuctivitis">Yes
+        </label>
+        <label>
+          <input type="radio" name="Conjunctivitis" value="No" [(ngModel)]="daily_clinical_feautres_conjuctivitis">No
+        </label>
+        <label>
+          <input type="radio" name="Conjunctivitis" value="Unknown" [(ngModel)]="daily_clinical_feautres_conjuctivitis">Unknown
+        </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Shortness of breath</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Shortness of breath" value="Yes" [(ngModel)]="daily_clinical_feautres_shortness_of_breath">Yes
+        </label>
+        <label>
+          <input type="radio" name="Shortness of breath" value="No" [(ngModel)]="daily_clinical_feautres_shortness_of_breath">No
+        </label>
+        <label>
+          <input type="radio" name="Shortness of breath" value="Unknown" [(ngModel)]="daily_clinical_feautres_shortness_of_breath">Unknown
+        </label>
+      </td>
+      <td colspan="2">Myalgia</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Myalgia" value="Yes" [(ngModel)]="daily_clinical_feautres_myalagia">Yes
+        </label>
+        <label>
+          <input type="radio" name="Myalgia" value="No" [(ngModel)]="daily_clinical_feautres_myalagia">No
+        </label>
+        <label>
+          <input type="radio" name="Myalgia" value="Unknown" [(ngModel)]="daily_clinical_feautres_myalagia">Unknown
+        </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Confusion</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Confusion" value="Yes" [(ngModel)]="daily_clinical_feautres_confusion">Yes
+        </label>
+        <label>
+          <input type="radio" name="Confusion" value="No" [(ngModel)]="daily_clinical_feautres_confusion">No
+        </label>
+        <label>
+          <input type="radio" name="Confusion" value="Unknown" [(ngModel)]="daily_clinical_feautres_confusion">Unknown
+        </label>
+      </td>
+      <td colspan="2">Other, specify</td>
+      <td colspan="2">
+        <label>
+          <input type="radio" name="Other, specify" value="Yes" [(ngModel)]="daily_clinical_feautres_other">Yes
+        </label>
+        <label>
+          <input type="radio" name="Other, specify" value="No" [(ngModel)]="daily_clinical_feautres_other">No
+        </label>
+        <label>
+          <input type="radio" name="Other, specify" value="Unknown" [(ngModel)]="daily_clinical_feautres_other">Unknown
+        </label>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="table tablestyle">
+    <thead>
+    <tr>
+      <th colspan="10" scope="col" class="header">
+        LABORATORY RESULTS (*record units if different from those listed)
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class ="span3">Parameter</td>
+      <td class="span2">Value*</td>
+      <td class="span1">Not done</td>
+      <td class="span3">Parameter</td>
+      <td class="span2">Value*</td>
+      <td class="span1">Not done</td>
+    </tr>
+    <tr>
+      <td>Haemoglobin (g/L)</td>
+      <td><input type="text" name="haemoglobin2" [(ngModel)]="laboratory_results_haemoglobin"></td>
+      <td><input type="checkbox" name="haemoglobinr2" value="Not done" [(ngModel)]="laboratory_results_haemoglobin"></td>
+      <td>Creatinine (μmol/L)</td>
+      <td><input type="text" name="Creatinine2" [(ngModel)]="laboratory_results_creatinine"></td>
+      <td><input type="checkbox" name="Creatininer2" value="Not done" [(ngModel)]="laboratory_results_creatinine"></td>
+    </tr>
+    <tr>
+      <td>WBC count (x109/L)</td>
+      <td><input type="text" name="WBC count (x109/L)2" [(ngModel)]="laboratory_results_wbc_count"></td>
+      <td><input type="checkbox" name="WBC count (x109/L)r2" value="Not done" [(ngModel)]="laboratory_results_wbc_count"></td>
+      <td>Sodium (mEq/L)</td>
+      <td><input type="text" name="Sodium (mEq/L)2" [(ngModel)]="laboratory_results_sodium"></td>
+      <td><input type="checkbox" name="Sodium (mEq/L)r2" value="Not done" [(ngModel)]="laboratory_results_sodium"></td>
+    </tr>
+    <tr>
+      <td>Haematocrit (%)</td>
+      <td><input type="text" name="Haematocrit (%)2" [(ngModel)]="laboratory_results_haematocrit"></td>
+      <td><input type="checkbox" name="Haematocrit (%)r2" value="Not done" [(ngModel)]="laboratory_results_haematocrit"></td>
+      <td>Potassium (mEq/L)</td>
+      <td><input type="text" name="Potassium (mEq/L)2" [(ngModel)]="laboratory_results_potassium"></td>
+      <td><input type="checkbox" name="Potassium (mEq/L)r2" value="Not done" [(ngModel)]="laboratory_results_potassium"></td>
+    </tr>
+    <tr>
+      <td>Platelets (x109/L)</td>
+      <td><input type="text" name="Platelets (x109/L)2" [(ngModel)]="laboratory_results_platelets"></td>
+      <td><input type="checkbox" name="Platelets (x109/L)r2" value="Not done" [(ngModel)]="laboratory_results_platelets"></td>
+      <td>Procalcitonin (ng/mL)</td>
+      <td><input type="text" name="Procalcitonin (ng/mL)2" [(ngModel)]="laboratory_results_procalcitonin"></td>
+      <td><input type="checkbox" name="Procalcitonin (ng/mL)r2" value="Not done" [(ngModel)]="laboratory_results_procalcitonin"></td>
+    </tr>
+    <tr>
+      <td>APTT/APTR</td>
+      <td><input type="text" name="APTT/APTR2" [(ngModel)]="laboratory_results_aptt_aptr"></td>
+      <td><input type="checkbox" name="APTT/APTRr2" value="Not done" [(ngModel)]="laboratory_results_aptt_aptr"></td>
+      <td>CRP (mg/L)</td>
+      <td><input type="text" name="CRP (mg/L)2" [(ngModel)]="laboratory_results_crp"></td>
+      <td><input type="checkbox" name="CRP (mg/L)r2"  value="Not done" [(ngModel)]="laboratory_results_crp"></td>
+    </tr>
+    <tr>
+      <td>PT (seconds)</td>
+      <td><input type="text" name="PT (seconds)2" [(ngModel)]="laboratory_results_pt"></td>
+      <td><input type="checkbox" name="PT (seconds)r2" value="Not done" [(ngModel)]="laboratory_results_pt"></td>
+      <td>LDH (U/L)</td>
+      <td><input type="text" name="LDH (U/L)2" [(ngModel)]="laboratory_results_ldh"></td>
+      <td><input type="checkbox" name="LDH (U/L)r2" value="Not done" [(ngModel)]="laboratory_results_ldh"></td>
+    </tr>
+    <tr>
+      <td>INR</td>
+      <td><input type="text" name="INR" [(ngModel)]="laboratory_results_inr"></td>
+      <td><input type="checkbox" name="INRr" value="Not done" [(ngModel)]="laboratory_results_inr"></td>
+      <td>Creatine kinase (U/L)</td>
+      <td><input type="text" name="Creatine kinase (U/L)2" [(ngModel)]="laboratory_results_creatine_kinase"></td>
+      <td><input type="checkbox" name="Creatine kinase (U/L)r2" value="Not done" [(ngModel)]="laboratory_results_creatine_kinase"></td>
+    </tr>
+    <tr>
+      <td>ALT/SGPT (U/L)</td>
+      <td><input type="text" name="ALT/SGPT (U/L)2" [(ngModel)]="laboratory_results_alt_sgpt"></td>
+      <td><input type="checkbox" name="ALT/SGPT (U/L)r2" value="Not done" [(ngModel)]="laboratory_results_alt_sgpt"></td>
+      <td>Troponin (ng/mL)</td>
+      <td><input type="text" name="Troponin (ng/mL)2" [(ngModel)]="laboratory_results_troponin"></td>
+      <td><input type="checkbox" name="Troponin (ng/mL)r2" value="Not done" [(ngModel)]="laboratory_results_troponin"></td>
+    </tr>
+    <tr>
+      <td>Total bilirubin (μmol/L)</td>
+      <td><input type="text" name="Total bilirubin (μmol/L)2" [(ngModel)]="laboratory_results_total_bilirubin"></td>
+      <td><input type="checkbox" name="Total bilirubin (μmol/L)r2" value="Not done" [(ngModel)]="laboratory_results_total_bilirubin"></td>
+      <td>ESR (mm/hr)</td>
+      <td><input type="text" name="ESR (mm/hr)2" [(ngModel)]="laboratory_results_esr"></td>
+      <td><input type="checkbox" name="ESR (mm/hr)r2" value="Not done" [(ngModel)]="laboratory_results_esr"></td>
+    </tr>
+    <tr>
+      <td>AST/SGOT (U/L)</td>
+      <td><input type="text" name="AST/SGOT (U/L)2" [(ngModel)]="laboratory_results_ast_sgot"></td>
+      <td><input type="checkbox" name="AST/SGOT (U/L)r2" value="Not done" [(ngModel)]="laboratory_results_ast_sgot"></td>
+      <td>D-dimer (mg/L)</td>
+      <td><input type="text" name="D-dimer (mg/L)2" [(ngModel)]="laboratory_results_d_dimer"></td>
+      <td><input type="checkbox" name="D-dimer (mg/L)r2" value="Not done" [(ngModel)]="laboratory_results_d_dimer"></td>
+    </tr>
+    <tr>
+      <td>Urea (BUN) (mmol/L)</td>
+      <td><input type="text" name="Urea (BUN) (mmol/L)2" [(ngModel)]="laboratory_results_urea"></td>
+      <td><input type="checkbox" name="Urea (BUN) (mmol/L)r2" value="Not done" [(ngModel)]="laboratory_results_urea"></td>
+      <td>Ferritin (ng/mL)</td>
+      <td><input type="text" name="Ferritin (ng/mL)2" [(ngModel)]="laboratory_results_ferritin"></td>
+      <td><input type="checkbox" name="Ferritin (ng/mL)r2" value="Not done" [(ngModel)]="laboratory_results_ferritin"></td>
+    </tr>
+    <tr>
+      <td>Lactate (mmol/L)</td>
+      <td><input type="text" name="Lactate (mmol/L))2" [(ngModel)]="laboratory_results_lactate"></td>
+      <td><input type="checkbox" name="Lactate (mmol/L)r2" value="Not done" [(ngModel)]="laboratory_results_lactate"></td>
+      <td>IL-6 (pg/mL)</td>
+      <td><input type="text" name="IL-6 (pg/mL)2" [(ngModel)]="laboratory_results_il_6"></td>
+      <td><input type="checkbox" name="IL-6 (pg/mL)r2" value="Not done" [(ngModel)]="laboratory_results_il_6"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        MEDICATION Is the patient CURRENTLY receiving any of the following?
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>Oral/orogastric fluids?</b>
+        <label>
+          <input type="radio" name="orogastric2" value="Yes" [(ngModel)]="currently_receiving_oral_orgastric_fluids">Yes
+        </label>
+        <label>
+          <input type="radio" name="orogastric2" value="No" [(ngModel)]="currently_receiving_oral_orgastric_fluids">No
+        </label>
+        <label>
+          <input type="radio" name="orogastric2" value="Unknown" [(ngModel)]="currently_receiving_oral_orgastric_fluids">Unknown
+        </label>
+        <span>    </span>
+        <b>   Intravenous fluids?</b>
+        <label>
+          <input type="radio" name="intravenous fluids2" value="Yes" [(ngModel)]="currently_receiving_intravenous_fluids"> Yes
+        </label>
+        <label>
+          <input type="radio" name="intravenous fluids2" value="No" [(ngModel)]="currently_receiving_intravenous_fluids"> No
+        </label>
+        <label>
+          <input type="radio" name="intravenous fluids2" value="Unknown" [(ngModel)]="currently_receiving_intravenous_fluids"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Antiviral?</b>
+        <label>
+          <input type="radio" name="antiviral2" value="Yes" [(ngModel)]="currently_receiving_antiviral"> Yes
+        </label>
+        <label>
+          <input type="radio" name="antiviral2" value="No" [(ngModel)]="currently_receiving_antiviral"> No
+        </label>
+        <label>
+          <input type="radio" name="antiviral2" value="Unknown" [(ngModel)]="currently_receiving_antiviral"> Unknown
+        </label>
+        <b>If yes: </b>
+        <label>
+          <input type="radio" name="antiviralr2" value="Ribavirin" [(ngModel)]="currently_receiving_antiviral_yes"> Ribavirin
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Lopinavir/Ritonavir" [(ngModel)]="currently_receiving_antiviral_yes"> Lopinavir/Ritonavir
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Neuraminidase inhibitor" [(ngModel)]="currently_receiving_antiviral_yes"> Neuraminidase inhibitor
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Interferon alpha" [(ngModel)]="currently_receiving_antiviral_yes"> Interferon alpha
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Interferon beta" [(ngModel)]="currently_receiving_antiviral_yes"> Interferon beta
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Other" [(ngModel)]="currently_receiving_antiviral_yes"> Other
+        </label>
+        <label>
+          .specify <input type="text" name="antiviralr2" [(ngModel)]="currently_receiving_antiviral_yes">
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Corticosteroid?</b>
+        <label>
+          <input type="radio" name="corticosteroid2" value="Yes" [(ngModel)]="currently_receiving_corticosteroid"> Yes
+        </label>
+        <label>
+          <input type="radio" name="corticosteroid2" value="No" [(ngModel)]="currently_receiving_corticosteroid"> No
+        </label>
+        <label>
+          <input type="radio" name="corticosteroid2" value="Unknown" [(ngModel)]="currently_receiving_corticosteroid"> Unknown
+        </label>
+        <b>  If yes, route:</b>
+        <label>
+          <input type="radio" name="corticosteroidy2" value="Oral" [(ngModel)]="currently_receiving_corticosteroid_yes"> Oral
+        </label>
+        <label>
+          <input type="radio" name="corticosteroidy2" value="Intravenous" [(ngModel)]="currently_receiving_corticosteroid_yes"> Intravenous
+        </label>
+        <label>
+          <input type="radio" name="corticosteroidy2" value="Inhaled" [(ngModel)]="currently_receiving_corticosteroid_yes"> Inhaled
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>If yes, please provide agent and maximum daily dose: </b><input type="text" name="agent of daily dose2" [(ngModel)]="currently_receiving_corticosteroid_daily_dose">
+      </td>
+    </tr>
+    <tr>
+      <td>
+						<span class="floatleft">
+							<b>Antibiotic?</b>
+							<label>
+							<input type="radio" name="antibiotic2" value="Yes" [(ngModel)]="currently_receiving_antibiotic"> Yes
+							</label>
+							<label>
+								<input type="radio" name="antibiotic2" value="No" [(ngModel)]="currently_receiving_antibiotic"> No
+							</label>
+							<label>
+								<input type="radio" name="antibiotic2" value="Unknown" [(ngModel)]="currently_receiving_antibiotic"> Unknown
+							</label>
+						</span>
+        <span class="floatright">
+							<b>Antifungal agent?</b>
+							<label>
+							<input type="radio" name="antifungal agent2" value="Yes" [(ngModel)]="currently_receiving_antifungal_agent"> Yes
+							</label>
+							<label>
+								<input type="radio" name="antifungal agent2" value="No" [(ngModel)]="currently_receiving_antifungal_agent"> No
+							</label>
+							<label>
+								<input type="radio" name="antifungal agent2" value="Unknown" [(ngModel)]="currently_receiving_antifungal_agent"> Unknown
+							</label>
+						</span>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Antimalarial agent?</b>
+        <label>
+          <input type="radio" name="antimalarial agent2" value="Yes" [(ngModel)]="currently_receiving_antimalarial_agent"> Yes
+        </label>
+        <label>
+          <input type="radio" name="antimalarial agent2"  value="No" [(ngModel)]="currently_receiving_antimalarial_agent"> No
+        </label>
+        <label>
+          <input type="radio" name="antimalarial agent2" value="Unknown" [(ngModel)]="currently_receiving_antimalarial_agent"> Unknown
+        </label>
+        <b>If yes, specify:</b>
+        <input type="text" name="antimalarial agenty2" [(ngModel)]="antimalarial_agent_yes">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Experimental agent?</b>
+        <label>
+          <input type="radio" name="experimental agent2" value="Yes" [(ngModel)]="currently_receiving_experiment_agent"> Yes
+        </label>
+        <label>
+          <input type="radio" name="experimental agent2" value="No" [(ngModel)]="currently_receiving_experiment_agent"> No
+        </label>
+        <label>
+          <input type="radio" name="experimental agent2" value="Unknown" [(ngModel)]="currently_receiving_experiment_agent"> Unknown
+        </label>
+        <b>If yes, specify:</b>
+        <input type="text" name="experimental agenty2" [(ngModel)]="currently_receiving_experiment_agent_yes">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Non-steroidal anti-inflammatory (NSAID) </b>
+        <label>
+          <input type="radio" name="anti-inflammatory2" value="Yes" [(ngModel)]="currently_receiving_nsaid"> Yes
+        </label>
+        <label>
+          <input type="radio" name="anti-inflammatory2" value="No" [(ngModel)]="currently_receiving_nsaid"> No
+        </label>
+        <label>
+          <input type="radio" name="anti-inflammatory2" value="Unknown" [(ngModel)]="currently_receiving_nsaid"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Angiotensin converting enzyme inhibitors (ACE inhibitors)</b>
+        <label>
+          <input type="radio" name="enzyme inhibitors2" value="Yes" [(ngModel)]="currently_receiving_angletonsin_enzyme_inbitors"> Yes
+        </label>
+        <label>
+          <input type="radio" name="enzyme inhibitors2" value="No" [(ngModel)]="currently_receiving_angletonsin_enzyme_inbitors"> No
+        </label>
+        <label>
+          <input type="radio" name="enzyme inhibitors2" value="Unknown" [(ngModel)]="currently_receiving_angletonsin_enzyme_inbitors"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Angiotensin II receptor blockers (ARBs)</b>
+        <label>
+          <input type="radio" name="receptor blocker2" value="Yes" [(ngModel)]="currently_receiving_arbs"> Yes
+        </label>
+        <label>
+          <input type="radio" name="receptor blocker2" value="No" [(ngModel)]="currently_receiving_arbs"> No
+        </label>
+        <label>
+          <input type="radio" name="receptor blocker2" value="Unknown" [(ngModel)]="currently_receiving_arbs"> Unknown
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        SUPPORTIVE CARE Is the patient CURRENTLY receiving any of the following?
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>
+          ICU or High Dependency Unit admission?
+        </b>
+        <label>
+          <input type="radio" name="admission2" value="Yes" [(ngModel)]="currently_receiving_icu_or_high_dependency_admission"> Yes
+        </label>
+        <label>
+          <input type="radio" name="admission2" value="No" [(ngModel)]="currently_receiving_icu_or_high_dependency_admission"> No
+        </label>
+        <label>
+          <input type="radio" name="admission2" value="Unknown" [(ngModel)]="currently_receiving_icu_or_high_dependency_admission"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Date of ICU/HDU admission</b>
+        <input type="date" [ngModel]="currently_receiving_icu_hdu_date| date:'yyyy-MM-dd'"
+               (ngModelChange)="currently_receiving_icu_hdu_date = $event" >
+        <label>
+          <input type="checkbox" name="unkowndate" value="Unknown" [(ngModel)]="currently_receiving_icu_hdu_date"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>ICU/HDU discharge date</b>
+        <input type="date" [ngModel]="currently_receiving_icu_hdu_discharge_date| date:'yyyy-MM-dd'" (ngModelChange)="currently_receiving_icu_hdu_discharge_date = $event" >
+        <label>
+          <input type="checkbox" name="Not discharged yet" value="Not discharded yet" [(ngModel)]="currently_receiving_icu_hdu_discharge_date"> Not discharged yet
+        </label>
+        <label>
+          <input type="checkbox" name="unknown icu " value="Unknown" [(ngModel)]="currently_receiving_icu_hdu_discharge_date"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Oxygen therapy?</b>
+        <label>
+          <input type="radio" name="Oxygen therapy2" value="Yes" [(ngModel)]="currently_receiving_oxygen_therapy"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Oxygen therapy2" value="No" [(ngModel)]="currently_receiving_oxygen_therapy"> No
+        </label>
+        <label>
+          <input type="radio" name="Oxygen therapy2" value="Unknown" [(ngModel)]="currently_receiving_oxygen_therapy"> Unknown
+        </label>
+        <b>If yes, complete all below</b>
+        <br>
+        <b>O2 flow:</b>
+        <label>
+          <input type="radio" name="O2 flow2" value="1-5 L/min" [(ngModel)]="currently_receiving_oxygen_therapy_o2_flow"> 1-5 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow2" value="6-10 L/min" [(ngModel)]="currently_receiving_oxygen_therapy_o2_flow"> 6-10 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow2" value="11-15 L/min" [(ngModel)]="currently_receiving_oxygen_therapy_o2_flow"> 11-15 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow2" value=">15 L/min" [(ngModel)]="currently_receiving_oxygen_therapy_o2_flow"> >15 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow2" value="Unknown" [(ngModel)]="currently_receiving_oxygen_therapy_o2_flow"> >Unknown
+        </label>
+        <br>
+        <b>Source of oxygen:</b>
+          <label>
+            <input type="radio" name="Source of oxyge2" [(ngModel)]="currently_receiving_oxygen_therapy_source_of_oxygen"> Piped
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen2" value="Cylinder" [(ngModel)]="currently_receiving_oxygen_therapy_source_of_oxygen"> Cylinder
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen2" value="Concentrator" [(ngModel)]="currently_receiving_oxygen_therapy_source_of_oxygen"> Concentrator
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen2" value="Unknown" [(ngModel)]="currently_receiving_oxygen_therapy_source_of_oxygen"> Unknown
+          </label>
+          <br>
+          <b>Interface:</b>
+          <label>
+            <input type="radio" name="Interface2" value="Nasal prongs" [(ngModel)]="currently_receiving_oxygen_therapy_interface"> Nasal prongs
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="HF nasal cannula" [(ngModel)]="currently_receiving_oxygen_therapy_interface"> HF nasal cannula
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="Mask" [(ngModel)]="currently_receiving_oxygen_therapy_interface"> Mask
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="Mask with reservoir" [(ngModel)]="currently_receiving_oxygen_therapy_interface"> Mask with reservoir
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="CRAP/NIV mask" [(ngModel)]="currently_receiving_oxygen_therapy_interface"> CPAP/NIV mask
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="Unknown" [(ngModel)]="currently_receiving_oxygen_therapy_interface"> Unknown
+          </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Non-invasive ventilation? (e.g.BIPAP/CPAP)</b>
+        <label>
+          <input type="radio" name="Non-invasive ventilation2" value="Yes" [(ngModel)]="currently_receiving_non_invasive_ventilation"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Non-invasive ventilation2" value="No" [(ngModel)]="currently_receiving_non_invasive_ventilation"> No
+        </label>
+        <label>
+          <input type="radio" name="Non-invasive ventilation2" value="Unknown" [(ngModel)]="currently_receiving_non_invasive_ventilation"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Invasive ventilation (Any)?</b>
+        <label>
+          <input type="radio" name="nvasive ventilation2" value="Yes" [(ngModel)]="currently_receiving_invasive_ventilation"> Yes
+        </label>
+        <label>
+          <input type="radio" name="nvasive ventilation2" value="No" [(ngModel)]="currently_receiving_invasive_ventilation"> No
+        </label>
+        <label>
+          <input type="radio" name="nvasive ventilation2" value="Unknown" [(ngModel)]="currently_receiving_invasive_ventilation"> Unknown
+        </label>
+        <b>   Inotropes/vasopressors?</b>
+        <label>
+          <input type="radio" name="notropes/vasopressors2" value="Yes" [(ngModel)]="currently_receiving_intropes_vasopressors"> Yes
+        </label>
+        <label>
+          <input type="radio" name="notropes/vasopressors2" value="No" [(ngModel)]="currently_receiving_intropes_vasopressors"> No
+        </label>
+        <label>
+          <input type="radio" name="notropes/vasopressors2" value="Unknown" [(ngModel)]="currently_receiving_intropes_vasopressors"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Extracorporeal (ECMO) support?</b>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support2" value="Yes" [(ngModel)]="currently_receiving_oxygen_ecmo_support"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support2" value="No" [(ngModel)]="currently_receiving_oxygen_ecmo_support"> No
+        </label>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support2" value="Unknown" [(ngModel)]="currently_receiving_oxygen_ecmo_support"> Unknown
+        </label>
+        <label>
+        <b>Prone position?</b>
+        <input type="radio" name="Prone position2" value="Yes" [(ngModel)]="currently_receiving_prone_position"> Yes
+        </label>
+        <label>
+          <input type="radio" name="EProne position2" value="No" [(ngModel)]="currently_receiving_prone_position"> No
+        </label>
+        <label>
+          <input type="radio" name="Prone position2" value="Unknown" [(ngModel)]="currently_receiving_prone_position"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Renal replacement therapy (RRT) or dialysis?</b>
+        <label>
+          <input type="radio" name="Renal replacement therapy (RRT) or dialysis2" value="Yes" [(ngModel)]="currently_receiving_rrt_dialysis"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Renal replacement therapy (RRT) or dialysis2" value="No" [(ngModel)]="currently_receiving_rrt_dialysis"> No
+        </label>
+        <label>
+          <input type="radio" name ="Renal replacement therapy (RRT) or dialysis2" value="Unknown" [(ngModel)]="currently_receiving_rrt_dialysis"> Unknown
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<!------------------------------------ Page 5 ---------------------------------------->
+
+
+
+<div>
+  <h6><b>MODULE 3: complete at discharge/death</b></h6>
+</div>
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        DIAGNOSTIC/PATHOGEN TESTING
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>Chest X-Ray /CT performed?</b>
+        <label>
+          <input type="radio" name="Chest X-Ray /CT performed" value="Yes" [(ngModel)]="chest_x_ray"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Chest X-Ray /CT performed" value="No" [(ngModel)]="chest_x_ray"> No
+        </label>
+        <label>
+          <input type="radio" name="Chest X-Ray /CT performed" value="Unknown" [(ngModel)]="chest_x_ray"> Unknown
+        </label>
+
+        <b>If Yes: infiltrates present?</b>
+        <label>
+          <input type="radio" name="infiltrates present" value="Yes" [(ngModel)]="inflitrates_present"> Yes
+        </label>
+        <label>
+          <input type="radio" name="infiltrates present" value="No" [(ngModel)]="inflitrates_present"> No
+        </label>
+        <label>
+          <input type="radio" name="infiltrates present" value="Unknown" [(ngModel)]="inflitrates_present"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Was pathogen testing done during this illness episode?</b>
+        <label>
+          <input type="radio" name="pathogen testing" value="Yes" [(ngModel)]="pathogen_testing_done_ilness_episode"> Yes
+        </label>
+        <label>
+          <input type="radio" name="pathogen testing" value="No" [(ngModel)]="pathogen_testing_done_ilness_episode"> No
+        </label>
+        <label>
+          <input type="radio" name="pathogen testing" value="Unknown" [(ngModel)]="pathogen_testing_done_ilness_episode"> Unknown
+        </label>
+
+        <b>If yes, complete all below:</b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Influenza virus:</b>
+        <label>
+          <input type="radio" name="Influenza virus" value="Positive" [(ngModel)]="influenza_virus"> Positive
+        </label>
+        <label>
+          <input type="radio" name="Influenza virus" value="Negative" [(ngModel)]="influenza_virus"> Negative
+        </label>
+        <label>
+          <input type="radio" name="Influenza virus" value="Not done" [(ngModel)]="influenza_virus"> Not done
+        </label>
+
+        <b>If positive, type</b>
+        <input type="text" name="influenzainput" [(ngModel)]="influenza_virus_positive">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Coronavirus:</b>
+        <label>
+          <input type="radio" name="Coronavirus" value="Positive" [(ngModel)]="coronavirus"> Positive
+        </label>
+        <label>
+          <input type="radio" name="Coronavirus" value="Negative" [(ngModel)]="coronavirus"> Negative
+        </label>
+        <label>
+          <input type="radio" name="Coronavirus" value="Not done" [(ngModel)]="coronavirus"> Not done
+        </label>
+
+        <b>If positive</b>
+        <label>
+          <input type="radio" name="Coronavirusp" value="MERS_Cov" [(ngModel)]="coronavirus_positive"> MERS-CoV
+        </label>
+        <label>
+          <input type="radio" name="Coronavirusp" value="SARS-Cov-2" [(ngModel)]="coronavirus_positive"> SARS-CoV-2
+        </label>
+        <label>
+          <input type="radio" name="Coronavirusp" [(ngModel)]="coronavirus_positive"> other
+          <input type="text" name="Coronaviruspinput" [(ngModel)]="coronavirus_positive">
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Other respiratory pathogen </b>
+        <label>
+          <input type="radio" name="Other respiratory pathogen" value="Positive" [(ngModel)]="other_respiratory_pathogen"> Positive
+        </label>
+        <label>
+          <input type="radio" name="Other respiratory pathogen" value="Negative" [(ngModel)]="other_respiratory_pathogen"> Negative
+        </label>
+        <label>
+          <input type="radio" name="Other respiratory pathogen" value="Not done" [(ngModel)]="other_respiratory_pathogen"> Not done
+        </label>
+
+        <b>If positive, specify </b>
+        <label>
+          <input type="text" name="Other respiratory pathogen input" [(ngModel)]="other_respiratory_pathogen">
+        </label>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Viral haemorrhagic fever:</b>
+        <label>
+          <input type="radio" name="Viral haemorrhagic fever" value="Positive" [(ngModel)]="viral_haemorhagic"> Positive
+        </label>
+        <label>
+          <input type="radio" name="Viral haemorrhagic fever" value="Negative" [(ngModel)]="viral_haemorhagic"> Negative
+        </label>
+        <label>
+          <input type="radio" name="Viral haemorrhagic fever" value="Not done" [(ngModel)]="viral_haemorhagic"> Not done
+        </label>
+
+        <b>If positive, specify  virus</b>
+        <label>
+          <input type="text" name="Viral haemorrhagic fever input" [(ngModel)]="viral_haemorhagic_positive">
+        </label>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Other pathogen of public health interest detected: If yes, specify</b>
+        <label>
+          <input type="text" name="Viral haemorrhagic fever input" [(ngModel)]="diagnostic_pathogen_testing_other_respiratory_pathogen">
+        </label>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Falciparum malaria:</b>
+        <label>
+          <input type="radio" name="Falciparum malaria" value="Positive" [(ngModel)]="falciparum_malaria"> Positive
+        </label>
+        <label>
+          <input type="radio" name="Falciparum malaria" value="Negative" [(ngModel)]="falciparum_malaria"> Negative
+        </label>
+        <label>
+          <input type="radio" name="Falciparum malaria" value="Not done" [(ngModel)]="falciparum_malaria"> Not done
+        </label>
+
+        <b>Non-falciparum malaria: </b>
+        <label>
+          <input type="radio" name="Non-falciparum malaria" value="Positive" [(ngModel)]="non_falciparum_malaria"> Positive
+        </label>
+        <label>
+          <input type="radio" name="Non-falciparum malaria" value="Negative" [(ngModel)]="non_falciparum_malaria"> Negative
+        </label>
+        <label>
+          <input type="radio" name="Non-falciparum malaria" value="Not done" [(ngModel)]="non_falciparum_malaria"> Not done
+        </label>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <b>HIV:</b>
+        <label>
+          <input type="radio" name="HIV2" value="Positive" [(ngModel)]="diagnostoc_pathogen_testing"> Positive
+        </label>
+        <label>
+          <input type="radio" name="HIV2" value="Negative" [(ngModel)]="diagnostoc_pathogen_testing"> Negative
+        </label>
+        <label>
+          <input type="radio" name="HIV2" value="Not done" [(ngModel)]="diagnostoc_pathogen_testing"> Not done
+        </label>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="10" scope="col" class="header">
+        COMPLICATIONS: At any time during hospitalisation did the patient experience:
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Shock</td>
+      <td>
+        <label>
+          <input type="radio" name="Shock" value="Yes" [(ngModel)]="shock">Yes
+        </label>
+        <label>
+          <input type="radio" name="Shock" value="No" [(ngModel)]="shock">No
+        </label>
+        <label>
+          <input type="radio" name="Shock" value="Unknown" [(ngModel)]="shock">Unknown
+        </label>
+      </td>
+      <td>Bacteraemia</td>
+      <td>
+        <label>
+          <input type="radio" name="Bacteraemia" value="Yes" [(ngModel)]="bacteraemia">Yes
+        </label>
+        <label>
+          <input type="radio" name="Bacteraemia" value="No" [(ngModel)]="bacteraemia">No
+        </label>
+        <label>
+          <input type="radio" name="Bacteraemia" value="Unknown" [(ngModel)]="bacteraemia">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Seizure</td>
+      <td>
+        <label>
+          <input type="radio" name="Seizure" value="Yes" [(ngModel)]="seizure">Yes
+        </label>
+        <label>
+          <input type="radio" name="Seizure" value="No" [(ngModel)]="seizure">No
+        </label>
+        <label>
+          <input type="radio" name="Seizure" value="Unknown" [(ngModel)]="seizure">Unknown
+        </label>
+      </td>
+      <td>Bleeding</td>
+      <td>
+        <label>
+          <input type="radio" name="Bleeding" value="Yes" [(ngModel)]="during_hospitalization_patent_experience_bleeding">Yes
+        </label>
+        <label>
+          <input type="radio" name="Bleeding" value="No" [(ngModel)]="during_hospitalization_patent_experience_bleeding">No
+        </label>
+        <label>
+          <input type="radio" name="Bleeding" value="Unknown" [(ngModel)]="during_hospitalization_patent_experience_bleeding">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Meningitis/Encephalitis</td>
+      <td>
+        <label>
+          <input type="radio" name="Meningitis/Encephalitis" value="Yes" [(ngModel)]="menigitis_encephalitis">Yes
+        </label>
+        <label>
+          <input type="radio" name="Meningitis/Encephalitis" value="No" [(ngModel)]="menigitis_encephalitis">No
+        </label>
+        <label>
+          <input type="radio" name="Meningitis/Encephalitis" value= "Unknown"[(ngModel)]="menigitis_encephalitis">Unknown
+        </label>
+      </td>
+      <td>Endocarditis</td>
+      <td>
+        <label>
+          <input type="radio" name="Endocarditis" value="Yes" [(ngModel)]="endocarditis">Yes
+        </label>
+        <label>
+          <input type="radio" name="Endocarditis" value="No" [(ngModel)]="endocarditis">No
+        </label>
+        <label>
+          <input type="radio" name="Endocarditis" value="Unknown" [(ngModel)]="endocarditis">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Anaemia</td>
+      <td>
+        <label>
+          <input type="radio" name="Anaemia" value="Yes" [(ngModel)]="anaemia">Yes
+        </label>
+        <label>
+          <input type="radio" name="Anaemia" value="No" [(ngModel)]="anaemia">No
+        </label>
+        <label>
+          <input type="radio" name="Anaemia" value="Unknown" [(ngModel)]="anaemia">Unknown
+        </label>
+      </td>
+      <td>Myocarditis/Pericarditis</td>
+      <td>
+        <label>
+          <input type="radio" name="Myocarditis/Pericarditis" value="Yes" [(ngModel)]="myocarditis_pericarditis">Yes
+        </label>
+        <label>
+          <input type="radio" name="Myocarditis/Pericarditis" value="No" [(ngModel)]="myocarditis_pericarditis">No
+        </label>
+        <label>
+          <input type="radio" name="Myocarditis/Pericarditis" value="unknown" [(ngModel)]="myocarditis_pericarditis">Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Cardiac arrhythmia</td>
+      <td>
+        <label>
+          <input type="radio" name="Cardiac arrhythmia" value="Yes" [(ngModel)]="cardiac_arrhythmia">Yes
+        </label>
+        <label>
+          <input type="radio" name="Cardiac arrhythmia" value="No" [(ngModel)]="cardiac_arrhythmia">No
+        </label>
+        <label>
+          <input type="radio" name="Cardiac arrhythmia" value="Unknown" [(ngModel)]="cardiac_arrhythmia">Unknown
+        </label>
+      </td>
+      <td>Acute renal injury</td>
+      <td>
+        <label>
+          <input type="radio" name="Acute renal injury" value="Yes" [(ngModel)]="acute_renal_injure">Yes
+        </label>
+        <label>
+          <input type="radio" name="Acute renal injury" value="No" [(ngModel)]="acute_renal_injure">No
+        </label>
+        <label>
+          <input type="radio" name="Acute renal injury" value="Unknown" [(ngModel)]="acute_renal_injure">Unknown
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Cardiac arrest</td>
+      <td>
+        <label>
+          <input type="radio" name="Cardiac arrest" value="Yes" [(ngModel)]="cardiac_arrest">Yes
+        </label>
+        <label>
+          <input type="radio" name="Cardiac arrest" value="No" [(ngModel)]="cardiac_arrest">No
+        </label>
+        <label>
+          <input type="radio" name="Cardiac arrest" value="Unknown" [(ngModel)]="cardiac_arrest">Unknown
+        </label>
+      </td>
+      <td>Pancreatitis</td>
+      <td>
+        <label>
+          <input type="radio" name="Pancreatitis" value="Yes" [(ngModel)]="pancreatitis">Yes
+        </label>
+        <label>
+          <input type="radio" name="Pancreatitis" value="No" [(ngModel)]="pancreatitis">No
+        </label>
+        <label>
+          <input type="radio" name="Pancreatitis" value="Unknown" [(ngModel)]="pancreatitis">Unknown
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Pneumonia</td>
+      <td>
+        <label>
+          <input type="radio" name="Pneumonia" value="Yes" [(ngModel)]="pneumonia">Yes
+        </label>
+        <label>
+          <input type="radio" name="Pneumonia" value="No" [(ngModel)]="pneumonia">No
+        </label>
+        <label>
+          <input type="radio" name="Pneumonia" value="Unknown" [(ngModel)]="pneumonia">Unknown
+        </label>
+      </td>
+      <td>Liver dysfunction</td>
+      <td>
+        <label>
+          <input type="radio" name="Liver dysfunction" value="Yes" [(ngModel)]="liver_dysfunction">Yes
+        </label>
+        <label>
+          <input type="radio" name="Liver dysfunction" value="No" [(ngModel)]="liver_dysfunction">No
+        </label>
+        <label>
+          <input type="radio" name="Liver dysfunction" value="Unknown" [(ngModel)]="liver_dysfunction">Unknown
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Bronchiolitis</td>
+      <td>
+        <label>
+          <input type="radio" name="Bronchiolitis" value="Yes" [(ngModel)]="bronchiolitis">Yes
+        </label>
+        <label>
+          <input type="radio" name="Bronchiolitis" value="No" [(ngModel)]="bronchiolitis">No
+        </label>
+        <label>
+          <input type="radio" name="Bronchiolitis" value="Unknown" [(ngModel)]="bronchiolitis">Unknown
+        </label>
+      </td>
+      <td>Cardiomyopathy</td>
+      <td>
+        <label>
+          <input type="radio" name="Cardiomyopathy" value="Yes" [(ngModel)]="cardiomyopathy">Yes
+        </label>
+        <label>
+          <input type="radio" name="Cardiomyopathy" value="No" [(ngModel)]="cardiomyopathy">No
+        </label>
+        <label>
+          <input type="radio" name="Cardiomyopathy" value="Unknown" [(ngModel)]="cardiomyopathy">Unknown
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Acute Respiratory Distress Syndrome</td>
+      <td>
+        <label>
+          <input type="radio" name="Acute Respiratory Distress Syndrome" value="Yes" [(ngModel)]="acute_respiratory_distress_syndome">Yes
+        </label>
+        <label>
+          <input type="radio" name="Acute Respiratory Distress Syndrome" value="No" [(ngModel)]="acute_respiratory_distress_syndome">No
+        </label>
+        <label>
+          <input type="radio" name="Acute Respiratory Distress Syndrome" value="Unknown" [(ngModel)]="acute_respiratory_distress_syndome">Unknown
+        </label>
+      </td>
+      <td>Other If Yes, specify</td>
+      <td>
+        <label>
+          <input type="radio" name="Other If Yes, specify" value="Yes" [(ngModel)]="during_hospitalization_patent_experience_other">Yes
+        </label>
+        <label>
+          <input type="radio" name="Other If Yes, specify" value="No" [(ngModel)]="during_hospitalization_patent_experience_other">No
+        </label>
+        <label>
+          <input type="radio" name="Other If Yes, specify" value="Unknown" [(ngModel)]="during_hospitalization_patent_experience_other">Unknown
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        MEDICATION: While hospitalised or at discharge, were any of the following administered?
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>Oral/orogastric fluids?</b>
+        <label>
+          <input type="radio" name="orogastric2" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_oral_fluids">Yes
+        </label>
+        <label>
+          <input type="radio" name="orogastric2" value="No" [(ngModel)]="while_hospitalised_or_discharge_oral_fluids">No
+        </label>
+        <label>
+          <input type="radio" name="orogastric2" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_oral_fluids">Unknown
+        </label>
+        <span>    </span>
+        <b>Intravenous fluids?</b>
+        <label>
+          <input type="radio" name="intravenous fluids2" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_intravenous"> Yes
+        </label>
+        <label>
+          <input type="radio" name="intravenous fluids2" value="No" [(ngModel)]="while_hospitalised_or_discharge_intravenous"> No
+        </label>
+        <label>
+          <input type="radio" name="intravenous fluids2" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_intravenous"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Antiviral?</b>
+        <label>
+          <input type="radio" name="antiviral2" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_antiviral"> Yes
+        </label>
+        <label>
+          <input type="radio" name="antiviral2" value="No" [(ngModel)]="while_hospitalised_or_discharge_antiviral"> No
+        </label>
+        <label>
+          <input type="radio" name="antiviral2" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_antiviral"> Unknown
+        </label>
+        <b>If yes: </b>
+        <label>
+          <input type="radio" name="antiviralr2" value="Ribavirin" [(ngModel)]="while_hospitalised_or_discharge_antiviral_yes"> Ribavirin
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Lopinavir/Ritonavir" [(ngModel)]="while_hospitalised_or_discharge_antiviral_yes"> Lopinavir/Ritonavir
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Neuraminidase inhibitor" [(ngModel)]="while_hospitalised_or_discharge_antiviral_yes"> Neuraminidase inhibitor
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Interferon alpha" [(ngModel)]="while_hospitalised_or_discharge_antiviral_yes"> Interferon alpha
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" value="Interferon beta" [(ngModel)]="while_hospitalised_or_discharge_antiviral_yes"> Interferon beta
+        </label>
+        <label>
+          <input type="radio" name="antiviralr2" [(ngModel)]="while_hospitalised_or_discharge_antiviral_yes"> Other
+        </label>
+        <label>
+          .specify <input type="text" name="antiviralr" [(ngModel)]="while_hospitalised_or_discharge_antiviral_yes">
+        </label>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+						<span class="floatleft">
+							<b>Antibiotic?</b>
+							<label>
+							<input type="radio" name="antibiotic2" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_antibiotic"> Yes
+							</label>
+							<label>
+								<input type="radio" name="antibiotic2" value="No" [(ngModel)]="while_hospitalised_or_discharge_antibiotic"> No
+							</label>
+							<label>
+								<input type="radio" name="antibiotic2" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_antibiotic"> Unknown
+							</label>
+							<b> if yes, specify </b>
+							<input type="text" name="antiobioticspec" [(ngModel)]="while_hospitalised_or_discharge_antibiotic">
+						</span>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Corticosteroid?</b>
+        <label>
+          <input type="radio" name="corticosteroid2" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_corticosteroid"> Yes
+        </label>
+        <label>
+          <input type="radio" name="corticosteroid2" value="No" [(ngModel)]="while_hospitalised_or_discharge_corticosteroid"> No
+        </label>
+        <label>
+          <input type="radio" name="corticosteroid2" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_corticosteroid"> Unknown
+        </label>
+        <b>  If yes, route:</b>
+        <label>
+          <input type="radio" name="corticosteroidy2" value="Oral" [(ngModel)]="while_hospitalised_or_discharge_corticosteroid_yes"> Oral
+        </label>
+        <label>
+          <input type="radio" name="corticosteroidy2" value="Intravenous" [(ngModel)]="while_hospitalised_or_discharge_corticosteroid_yes"> Intravenous
+        </label>
+        <label>
+          <input type="radio" name="corticosteroidy2" value="Inhaled" [(ngModel)]="while_hospitalised_or_discharge_corticosteroid_yes"> Inhaled
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>If yes, please provide agent and maximum daily dose: </b><input type="text" name="agent of daily dose2" [(ngModel)]="while_hospitalised_or_discharge_corticosteroid_daily_dose">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Antifungal agent?</b>
+        <label>
+          <input type="radio" name="Antifungal agent" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_antifungal_agent"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Antifungal agent" value="No" [(ngModel)]="while_hospitalised_or_discharge_antifungal_agent"> No
+        </label>
+        <label>
+          <input type="radio" name="Antifungal agent" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_antifungal_agent"> Unknown
+        </label>
+        <b>If yes, specify:</b>
+        <input type="text" name="Antifungal agent input" [(ngModel)]="while_hospitalised_or_discharge_antifungal_agent">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Antimalarial agent?</b>
+        <label>
+          <input type="radio" name="antimalarial agent2" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_antimalarial_agent"> Yes
+        </label>
+        <label>
+          <input type="radio" name="antimalarial agent2" value="No" [(ngModel)]="while_hospitalised_or_discharge_antimalarial_agent"> No
+        </label>
+        <label>
+          <input type="radio" name="antimalarial agent2" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_antimalarial_agent"> Unknown
+        </label>
+        <b>If yes, specify:</b>
+        <input type="text" name="antimalarial agent input 2" [(ngModel)]="while_hospitalised_or_discharge_antimalarial_agent">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Experimental agent?</b>
+        <label>
+          <input type="radio" name="experimental agent2" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_experiment_agent"> Yes
+        </label>
+        <label>
+          <input type="radio" name="experimental agent2" value="No" [(ngModel)]="while_hospitalised_or_discharge_experiment_agent"> No
+        </label>
+        <label>
+          <input type="radio" name="experimental agent2" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_experiment_agent"> Unknown
+        </label>
+        <b>If yes, specify:</b>
+        <input type="text" name="experimental agent input" [(ngModel)]="while_hospitalised_or_discharge_experiment_agent">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Non-steroidal anti-inflammatory (NSAID) </b>
+        <label>
+          <input type="radio" name="anti-inflammatory2" value="Yes" [(ngModel)]="while_hospitalised_or_discharge_nsaid"> Yes
+        </label>
+        <label>
+          <input type="radio" name="anti-inflammatory2" value="No" [(ngModel)]="while_hospitalised_or_discharge_nsaid"> No
+        </label>
+        <label>
+          <input type="radio" name="anti-inflammatory2" value="Unknown" [(ngModel)]="while_hospitalised_or_discharge_nsaid"> Unknown
+        </label>
+        <b> If yes, specify</b>
+        <input type="text" name="anti-inflammatory2 input" [(ngModel)]="while_hospitalised_or_discharge_nsaid">
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        SUPPORTIVE CARE: At ANY time during hospitalisation, did the patient receive/undergo:
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>
+          ICU or High Dependency Unit admission?
+        </b>
+        <label>
+          <input type="radio" name="admission3" value="Yes" [(ngModel)]="any_time_during_hospitalisation_icu_high_dependency_unit_admission"> Yes
+        </label>
+        <label>
+          <input type="radio" name="admission3" value="No" [(ngModel)]="any_time_during_hospitalisation_icu_high_dependency_unit_admission"> No
+        </label>
+        <label>
+          <input type="radio" name="admission3" value="Unknown" [(ngModel)]="any_time_during_hospitalisation_icu_high_dependency_unit_admission"> Unknown
+        </label>
+        <b>       if yes, total duration</b>
+        <input type="text" name="icu input" [(ngModel)]="any_time_during_hospitalisation_icu_high_dependency_unit_admission"> <b> days</b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Date of ICU admission:</b>
+        <input type="date" [ngModel]="any_time_during_hospitalisation_date_of_icu_addmission | date:'yyyy-MM-dd'"
+               (ngModelChange)="any_time_during_hospitalisation_date_of_icu_addmission = $event">
+        <label>
+          <input type="checkbox" name="date of icu admission none" [(ngModel)]="any_time_during_hospitalisation_date_of_icu_addmission"> N/A
+        </label>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Oxygen therapy?</b>
+        <label>
+          <input type="radio" name="Oxygen therapy3" value="Yes" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Oxygen therapy3" value="No" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy"> No
+        </label>
+        <label>
+          <input type="radio" name="Oxygen therapy3" value="Unknown" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy"> Unknown
+        </label>
+        <b>If yes, complete all </b>
+        <br>
+        <label>
+          <b>Total duration</b>
+          <input type="type" name="oxygen therapy input" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_total_duration"> days
+        </label>
+        <br>
+        <b>O2 flow:</b>
+        <label>
+          <input type="radio" name="O2 flow2" value="1-5 L/min" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_02_flow"> 1-5 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow2" value="6-10 L/min" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_02_flow"> 6-10 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow2" value="11-15 L/min" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_02_flow"> 11-15 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow2" value=">15 L/min" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_02_flow"> >15 L/min
+        </label>
+        <label>
+          <input type="radio" name="O2 flow2"  value="Unknown" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_02_flow"> >Unknown
+        </label>
+        <br>
+        <b>Source of oxygen:</b>
+          <label>
+            <input type="radio" name="Source of oxygen2" value="Piped" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_source_of_oxygen"> Piped
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen2" value="Cylinder" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_source_of_oxygen"> Cylinder
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen2" value="Concentrator" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_source_of_oxygen"> Concentrator
+          </label>
+          <label>
+            <input type="radio" name="Source of oxygen2" value="Unknown" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_source_of_oxygen"> Unknown
+          </label>
+          <br>
+          <b>Interface:</b>
+          <label>
+            <input type="radio" name="Interface2" value="Nasal prongs" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_interface"> Nasal prongs
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="HF nasal cannula" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_interface"> HF nasal cannula
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="Mask" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_interface"> Mask
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="Mask wit reservoir" [(ngModel)]="any_time_during_hospitalisation_oxygen_therapy_interface"> Mask with reservoir
+          </label>
+          <label>
+            <input type="radio" name="Interface2" value="CPAP/NIV mask"> CPAP/NIV mask
+          </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Non-invasive ventilation? (e.g.BIPAP/CPAP)</b>
+        <label>
+          <input type="radio" name="Non-invasive ventilation2" value="Yes" [(ngModel)]="any_time_during_hospitalisation_non_invasive_ventilation"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Non-invasive ventilation2" value="No" [(ngModel)]="any_time_during_hospitalisation_non_invasive_ventilation"> No
+        </label>
+        <label>
+          <input type="radio" name="Non-invasive ventilation2" value="N/A" [(ngModel)]="any_time_during_hospitalisation_non_invasive_ventilation"> N/A
+        </label>
+        <b> if yes, total duration:</b>
+          <label>
+            <input type="text" name="Non-invasive ventilation2 input" [(ngModel)]="any_time_during_hospitalisation_non_invasive_ventilation_yes">
+            days
+          </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Invasive ventilation (Any)?</b>
+        <label>
+          <input type="radio" name="nvasive ventilation2" value="Yes" [(ngModel)]="any_time_during_hospitalisation_invasive_ventilation"> Yes
+        </label>
+        <label>
+          <input type="radio" name="nvasive ventilation2" value="No" [(ngModel)]="any_time_during_hospitalisation_invasive_ventilation"> No
+        </label>
+        <label>
+          <input type="radio" name="nvasive ventilation2" value="Unknown" [(ngModel)]="any_time_during_hospitalisation_invasive_ventilation"> Unknown
+        </label>
+        <b> if yes, total duration:</b>
+          <label>
+            <input type="text" name="invasive input" [(ngModel)]="any_time_during_hospitalisation_invasive_ventilation_yes">
+            days
+          </label>
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        <b>Extracorporeal (ECMO) support?</b>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support2" value="Yes" [(ngModel)]="currently_receiving_oxygen_ecmo_support"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support2" value="No" [(ngModel)]="currently_receiving_oxygen_ecmo_support"> No
+        </label>
+        <label>
+          <input type="radio" name="Extracorporeal (ECMO) support2" value="Unknown" [(ngModel)]="currently_receiving_oxygen_ecmo_support"> Unknown
+        </label>
+        <b> if yes, total duration:</b>
+          <label>
+            <input type="type" name="xtracorporeal (ECMO) support2 input" [(ngModel)]="any_time_during_hospitalisation_ecmo_yes">
+            days
+          </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+        <b>Prone position?</b>
+        <input type="radio" name="Prone position2" value="Yes" [(ngModel)]="any_time_during_hospitalisation_prone_position"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Prone position2" value="No" [(ngModel)]="any_time_during_hospitalisation_prone_position"> No
+        </label>
+        <label>
+          <input type="radio" name="Prone position2" value="Unknown" [(ngModel)]="any_time_during_hospitalisation_prone_position"> Unknown
+        </label>
+        <b> if yes, total duration:</b>
+          <label>
+            <input type="type" name="Prone position2 input" [(ngModel)]="any_time_during_hospitalisation_prone_position_yes">
+            days
+          </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+        <b>Renal replacement therapy (RRT) or dialysis?</b>
+        <input type="radio" name="Renal replacement therapy (RRT) or dialysis" value="Yes" [(ngModel)]="any_time_during_hospitalisation_rrt"> Yes
+        </label>
+        <label>
+          <input type="radio" name="Renal replacement therapy (RRT) or dialysis" value="No" [(ngModel)]="any_time_during_hospitalisation_rrt"> No
+        </label>
+        <label>
+          <input type="radio" name="Renal replacement therapy (RRT) or dialysis" value="Unknown" [(ngModel)]="any_time_during_hospitalisation_rrt"> Unknown
+        </label>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>   Inotropes/vasopressors?</b>
+        <label>
+          <input type="radio" name="notropes/vasopressors2" value="Yes" [(ngModel)]="any_time_during_hospitalisation_intropes_vaspopressors"> Yes
+        </label>
+        <label>
+          <input type="radio" name="notropes/vasopressors2" value="No" [(ngModel)]="any_time_during_hospitalisation_intropes_vaspopressors"> No
+        </label>
+        <label>
+          <input type="radio" name="notropes/vasopressors2" value="Unknown" [(ngModel)]="any_time_during_hospitalisation_intropes_vaspopressors"> Unknown
+        </label>
+        <b> if yes, total duration:</b>
+          <label>
+            <input type="type" name="Pnotropes/vasopressors2 input" [(ngModel)]="any_time_during_hospitalisation_intropes_vaspopressors_yes">
+            days
+          </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div>
+  <table class="table tablestyle table-bordered">
+    <thead>
+    <tr>
+      <th colspan="2" scope="col" class="header">
+        OUTCOME
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <b>Outcome: </b>
+        <label>
+          <input type="radio" name="outcome" value="Discharged alive" [(ngModel)]="outcome"> Discharged alive
+        </label>
+        <label>
+          <input type="radio" name="outcome" value="Hospitalized" [(ngModel)]="outcome"> Hospitalized
+        </label>
+        <label>
+          <input type="radio" name="outcome" value="Transfer to other facility" [(ngModel)]="outcome"> Transfer to other facility
+        </label>
+        <label>
+          <input type="radio" name="outcome" value="Death" [(ngModel)]="outcome"> Death
+        </label>
+        <label>
+          <input type="radio" name="outcome" value="Unknown" [(ngModel)]="outcome"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Outcome date: </b>
+
+        <input type="date" placeholder="D" [ngModel]="outcome_date| date:'yyyy-MM-dd'"
+               (ngModelChange)="outcome_date = $event">
+        <label>
+          <input type="checkbox" value="Unknown" [(ngModel)]="outcome_date"> Unknown
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>If Discharged alive: Ability to self-care at discharge versus before illness: </b>
+        <label>
+          <input type="radio" name="" value="Same as before illness" [(ngModel)]="ability_to_salf_care_at_dicharge_versus_before_illness"> Same as before illness
+        </label>
+        <label>
+          <input type="radio" name="" value="Worse" [(ngModel)]="ability_to_salf_care_at_dicharge_versus_before_illness"> Worse
+        </label>
+        <label>
+          <input type="radio" name="" value="Better" [(ngModel)]="ability_to_salf_care_at_dicharge_versus_before_illness"> Better
+        </label>
+        <label>
+          <input type="radio" name="" value="Unknown" [(ngModel)]="ability_to_salf_care_at_dicharge_versus_before_illness"> Unknown
+        </label>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <input type = "submit" (click)="addCRF()">
+</div>
+<div>
+  <p class="footer">
+    COVID-19 CASE RECORD FORM RAPID version 23MAR2020
+    Adapted from SPRINT SARI CRF by <a href = "https://isaric.tghn.org/" class="underline">ISARIC</a>. Licensed under a <a href = "https://creativecommons.org/">Creative Commons Attribution-ShareAlike 4.0</a> International License by <a href = "https://isaric.tghn.org/" class="underline">ISARIC</a> on behalf of Oxford University.
+  </p>
+</div>
+</body>
+
+</html>
